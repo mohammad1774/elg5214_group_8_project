@@ -148,6 +148,24 @@ mkdir -p "$ROOT/presentation"
 
 # ─── .gitignore ──────────────────────────────────────────────────────────────
 cat > "$ROOT/.gitignore" << 'GITIGNORE'
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.npy
+*.npz
+logs/
+metrics/
+results/*/cartpole_*/seed_*
+results/*/mountaincar_*/seed_*
+results/random_baseline/
+results/heuristic_baseline/
+checkpoints/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
 venv/
 .env
 GITIGNORE
