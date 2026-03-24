@@ -1,32 +1,38 @@
 """
-replay_buffer.py — Experience replay buffer using JAX arrays.
+Experience Replay Buffer for DQN variants.
+Uses pre-allocated JAX arrays with a circular write pointer.
 
-All fields (including ptr, size, capacity) are jnp arrays so the
-buffer can be used inside lax.fori_loop / lax.scan without pulling
-scalars to CPU.
-
-Used by: DQN baseline, DQN+entropy, DQN+RND, DQN+ICM
+Usage:
+    buffer = init_buffer(capacity=10000, obs_dim=4)
+    buffer = add_transition(buffer, obs, action, reward, next_obs, done)
+    batch = sample_batch(key, buffer, batch_size=32)
 """
-
-from typing import Dict
 
 import jax
 import jax.numpy as jnp
+from typing import Dict, Tuple
 
 
 def init_buffer(capacity: int, obs_dim: int) -> Dict:
-    """Create an empty replay buffer. All metadata are JAX scalars."""
-    buffer = {
-        "obs":      jnp.zeros((capacity, obs_dim), dtype=jnp.float32),
-        "actions":  jnp.zeros((capacity,), dtype=jnp.int32),
-        "rewards":  jnp.zeros((capacity,), dtype=jnp.float32),
-        "next_obs": jnp.zeros((capacity, obs_dim), dtype=jnp.float32),
-        "dones":    jnp.zeros((capacity,), dtype=jnp.bool_),
-        "size":     jnp.int32(0),
-        "ptr":      jnp.int32(0),
-        "capacity": jnp.int32(capacity),
+    """Create an empty replay buffer with pre-allocated arrays.
+
+    Args:
+        capacity: Maximum number of transitions to store.
+        obs_dim: Observation dimensionality.
+
+    Returns:
+        Buffer state dict with arrays and metadata.
+    """
+    return {
+        "obs": jnp.zeros((capacity, obs_dim)),
+        "actions": jnp.zeros(capacity, dtype=jnp.int32),
+        "rewards": jnp.zeros(capacity),
+        "next_obs": jnp.zeros((capacity, obs_dim)),
+        "dones": jnp.zeros(capacity, dtype=jnp.bool_),
+        "ptr": 0,       # Next write position
+        "size": 0,       # Current number of valid transitions
+        "capacity": capacity,
     }
-    return buffer
 
 
 def add_transition(
@@ -37,60 +43,59 @@ def add_transition(
     next_obs: jnp.ndarray,
     done: bool,
 ) -> Dict:
-    """Add a single transition (works in Python loops and inside lax transforms)."""
-    ptr = buffer["ptr"]
+    """Add a single transition to the buffer (circular overwrite).
+
+    Args:
+        buffer: Current buffer state.
+        obs: Observation, shape (obs_dim,).
+        action: Action taken (integer).
+        reward: Reward received (extrinsic + any intrinsic bonus).
+        next_obs: Next observation, shape (obs_dim,).
+        done: Whether episode terminated.
+
+    Returns:
+        Updated buffer state.
+    """
+    idx = buffer["ptr"]
+    cap = buffer["capacity"]
 
     buffer = {
-        "obs":      buffer["obs"].at[ptr].set(obs),
-        "actions":  buffer["actions"].at[ptr].set(action),
-        "rewards":  buffer["rewards"].at[ptr].set(reward),
-        "next_obs": buffer["next_obs"].at[ptr].set(next_obs),
-        "dones":    buffer["dones"].at[ptr].set(done),
-        "ptr":      (ptr + 1) % buffer["capacity"],
-        "size":     jnp.minimum(buffer["size"] + 1, buffer["capacity"]),
-        "capacity": buffer["capacity"],
+        **buffer,
+        "obs": buffer["obs"].at[idx].set(obs),
+        "actions": buffer["actions"].at[idx].set(action),
+        "rewards": buffer["rewards"].at[idx].set(reward),
+        "next_obs": buffer["next_obs"].at[idx].set(next_obs),
+        "dones": buffer["dones"].at[idx].set(done),
+        "ptr": (idx + 1) % cap,
+        "size": min(buffer["size"] + 1, cap),
     }
-
     return buffer
 
 
 def sample_batch(
-    buffer: Dict,
-    key: jax.Array,
-    batch_size: int,
+    key: jax.random.PRNGKey, buffer: Dict, batch_size: int
 ) -> Dict:
-    """Sample a random mini-batch of transitions."""
-    size = buffer["size"]
-    indices = jax.random.randint(key, (batch_size,), 0, size)
+    """Sample a uniformly random batch of transitions.
 
+    Args:
+        key: JAX PRNG key.
+        buffer: Current buffer state.
+        batch_size: Number of transitions to sample.
+
+    Returns:
+        Dict with keys: obs, actions, rewards, next_obs, dones.
+        Each has leading dimension batch_size.
+    """
+    indices = jax.random.randint(key, (batch_size,), 0, buffer["size"])
     return {
-        "obs":      buffer["obs"][indices],
-        "actions":  buffer["actions"][indices],
-        "rewards":  buffer["rewards"][indices],
+        "obs": buffer["obs"][indices],
+        "actions": buffer["actions"][indices],
+        "rewards": buffer["rewards"][indices],
         "next_obs": buffer["next_obs"][indices],
-        "dones":    buffer["dones"][indices],
+        "dones": buffer["dones"][indices],
     }
 
 
-def add_transitions_batch(buffer, rollout, n_valid):
-    """Insert n_valid transitions from rollout arrays into the buffer.
-
-    Uses lax.fori_loop so pointer arithmetic stays on-device (GPU).
-    """
-    from jax import lax
-
-    def body_fn(t, buf):
-        ptr = buf["ptr"]
-        buf = {
-            "obs":      buf["obs"].at[ptr].set(rollout["obs"][t]),
-            "actions":  buf["actions"].at[ptr].set(rollout["actions"][t]),
-            "rewards":  buf["rewards"].at[ptr].set(rollout["rewards"][t]),
-            "next_obs": buf["next_obs"].at[ptr].set(rollout["next_obs"][t]),
-            "dones":    buf["dones"].at[ptr].set(rollout["dones"][t]),
-            "ptr":      (ptr + 1) % buf["capacity"],
-            "size":     jnp.minimum(buf["size"] + 1, buf["capacity"]),
-            "capacity": buf["capacity"],
-        }
-        return buf
-
-    return lax.fori_loop(0, n_valid, body_fn, buffer)
+def can_sample(buffer: Dict, batch_size: int) -> bool:
+    """Check if buffer has enough transitions to sample a batch."""
+    return buffer["size"] >= batch_size

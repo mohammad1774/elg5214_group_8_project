@@ -1,85 +1,96 @@
 """
-env_utils.py — Environment factory.
+Environment utilities for Gymnax CartPole-v1 and MountainCar-v0.
+Provides dense and sparse reward variants.
 
-This is the ONLY file teammates need to call. It imports from
-cartpole_env.py and mountaincar_env.py and provides one clean interface:
-
-    env, env_params, obs_dim, num_actions = get_env("cartpole", "sparse")
-
-WHY THIS FILE EXISTS:
-    - cartpole_env.py defines CartPole-specific logic (dense + sparse)
-    - mountaincar_env.py defines MountainCar-specific logic (dense + sparse)
-    - This file is the router: you tell it WHAT you want, it gives you
-      the right env without you importing anything else.
-
-    This means a test script like test_dqn_rnd_agent.py just does:
-        from src.envs.env_utils import get_env
-        env, env_params, obs_dim, num_actions = get_env(env_name, reward_type)
-
-    And it works for all 4 combinations without any if/else logic in the test file.
-
-USED BY: Every test_*.py file in src/test/
+Usage:
+    env, env_params = get_env("CartPole-v1", sparse=True)
+    obs, state = env.reset(key, env_params)
+    obs, state, reward, done, info = env.step(key, state, action, env_params)
 """
 
-from src.envs.cartpole_env import (
-    make_cartpole_dense,
-    make_cartpole_sparse,
-    CARTPOLE_OBS_DIM,
-    CARTPOLE_NUM_ACTIONS,
-)
-
-from src.envs.mountaincar_env import (
-    make_mountaincar_dense,
-    make_mountaincar_sparse,
-    MOUNTAINCAR_OBS_DIM,
-    MOUNTAINCAR_NUM_ACTIONS,
-)
+import jax
+import jax.numpy as jnp
+import gymnax
 
 
-def get_env(env_name: str, reward_type: str = "dense"):
-    """Create an environment for the given name and reward variant.
+# Environment metadata
+ENV_CONFIGS = {
+    "CartPole-v1": {"obs_dim": 4, "act_dim": 2, "max_steps": 500},
+    "MountainCar-v0": {"obs_dim": 2, "act_dim": 3, "max_steps": 200},
+}
+
+
+def get_env(name: str, sparse: bool = False):
+    """Create a Gymnax environment with optional sparse reward wrapper.
 
     Args:
-        env_name:    "cartpole" or "mountaincar"
-        reward_type: "dense" (original Gymnax) or "sparse" (binary end-of-episode)
+        name: Environment name ("CartPole-v1" or "MountainCar-v0").
+        sparse: If True, replace dense reward with sparse (binary at episode end).
 
     Returns:
-        env:         Gymnax environment or sparse wrapper
-        env_params:  Gymnax environment parameters
-        obs_dim:     int — observation vector size (4 or 2)
-        num_actions: int — number of discrete actions (2 or 3)
+        (env, env_params) tuple. If sparse=True, returns a SparseWrapper.
+    """
+    env, env_params = gymnax.make(name)
+    if sparse:
+        env = SparseRewardWrapper(env, name)
+    return env, env_params
 
-    Example:
-        # In your test script:
-        env, env_params, obs_dim, num_actions = get_env("cartpole", "sparse")
 
-        # Initialize network with the right dimensions:
-        q_params = init_q_params(key, obs_dim=obs_dim, num_actions=num_actions)
+def get_env_config(name: str) -> dict:
+    """Get observation/action dimensions and max steps for an environment."""
+    if name not in ENV_CONFIGS:
+        raise ValueError(f"Unknown env: {name}. Choose from {list(ENV_CONFIGS.keys())}")
+    return ENV_CONFIGS[name]
 
-        # Run the env:
-        obs, state = env.reset_env(key, env_params)
-        obs, state, reward, done, info = env.step_env(key, state, action, env_params)
+
+class SparseRewardWrapper:
+    """Wraps a Gymnax environment to provide sparse (binary) rewards.
+
+    Dense rewards are zeroed out during the episode. At termination:
+      - CartPole: reward = 1.0 if survived max_steps, else 0.0
+      - MountainCar: reward = 1.0 if reached the goal (position >= 0.5), else 0.0
     """
 
-    if env_name == "cartpole":
-        if reward_type == "dense":
-            env, env_params = make_cartpole_dense()
-        elif reward_type == "sparse":
-            env, env_params = make_cartpole_sparse()
-        else:
-            raise ValueError(f"Unknown reward_type: '{reward_type}'")
-        return env, env_params, CARTPOLE_OBS_DIM, CARTPOLE_NUM_ACTIONS
+    def __init__(self, env, env_name: str):
+        self.env = env
+        self.env_name = env_name
 
-    elif env_name == "mountaincar":
-        if reward_type == "dense":
-            env, env_params = make_mountaincar_dense()
-        elif reward_type == "sparse":
-            env, env_params = make_mountaincar_sparse()
-        else:
-            raise ValueError(f"Unknown reward_type: '{reward_type}'")
-        return env, env_params, MOUNTAINCAR_OBS_DIM, MOUNTAINCAR_NUM_ACTIONS
+    @property
+    def default_params(self):
+        return self.env.default_params
 
-    else:
-        raise ValueError(
-            f"Unknown env_name: '{env_name}'. Choose 'cartpole' or 'mountaincar'"
-        )
+    def reset(self, key, params=None):
+        return self.env.reset(key, params)
+
+    def step(self, key, state, action, params=None):
+        obs, state, reward, done, info = self.env.step(key, state, action, params)
+
+        if self.env_name == "CartPole-v1":
+            # Sparse: 1.0 only if episode ends by reaching max steps (success)
+            # done=True from falling over → reward=0.0
+            # done=True from max steps → reward=1.0
+            # not done → reward=0.0
+            # In CartPole, the dense reward is +1 per step. If done and
+            # the reward was still +1, the pole didn't fall (time limit).
+            sparse_reward = jnp.where(
+                done,
+                jnp.where(reward > 0, 1.0, 0.0),  # success vs failure at termination
+                0.0  # zero reward during episode
+            )
+        elif self.env_name == "MountainCar-v0":
+            # Sparse: 1.0 only if car reached the goal (position >= 0.5)
+            # obs[0] is position
+            sparse_reward = jnp.where(
+                done,
+                jnp.where(obs[0] >= 0.5, 1.0, 0.0),
+                0.0
+            )
+        else:
+            # Fallback: binary at episode end based on positive reward
+            sparse_reward = jnp.where(done, jnp.where(reward > 0, 1.0, 0.0), 0.0)
+
+        return obs, state, sparse_reward, done, info
+
+    # Delegate attribute access to wrapped env
+    def __getattr__(self, name):
+        return getattr(self.env, name)

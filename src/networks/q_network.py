@@ -1,107 +1,81 @@
 """
-q_network.py — Q-network for all DQN variants.
+Q-Network for DQN variants.
+Pure JAX functional style: init_q_params(key, obs_dim, act_dim) → params dict
+                           q_forward(params, obs) → Q-values (act_dim,)
+                           q_forward_batch(params, obs_batch) → Q-values (batch, act_dim)
 
-WHAT IT DOES:
-    Takes an observation (e.g. [cart_pos, cart_vel, pole_angle, pole_vel])
-    and outputs one Q-value per action: Q(s, a) for each a.
-
-    The agent picks the action with the highest Q-value (greedy) or
-    sometimes picks randomly (epsilon-greedy for exploration).
-
-ARCHITECTURE (from proposal):
-    obs → Linear(obs_dim, 64) → ReLU → Linear(64, 64) → ReLU → Linear(64, num_actions)
-
-    This is the same 2-hidden-layer MLP the proposal specifies.
-    The reference assignment used tanh; we use ReLU per the proposal.
-
-WHY PURE FUNCTIONS (not a class):
-    JAX works best with pure functions + explicit parameter dicts.
-    We pass `params` as a dict of weight matrices. This makes it easy to:
-    - Use jax.jit for fast GPU execution
-    - Use jax.value_and_grad for automatic differentiation
-    - Copy params for the target network (target_params = q_params)
-
-USED BY: Students A and B (all DQN variants)
+Architecture: 2 hidden layers × 64 units, ReLU activations (per proposal spec).
 """
-
-from typing import Dict
 
 import jax
 import jax.numpy as jnp
+from typing import Dict, Tuple
 
 
-def init_q_params(key: jax.Array,
-                  obs_dim: int,
-                  hidden_dim: int = 64,
-                  num_actions: int = 2,
-                  init_scale: float = 0.1) -> Dict[str, jnp.ndarray]:
-    """Initialize Q-network weights randomly.
+def _init_layer(key: jax.random.PRNGKey, in_dim: int, out_dim: int) -> Dict:
+    """Xavier uniform init for a single dense layer."""
+    limit = jnp.sqrt(6.0 / (in_dim + out_dim))
+    w_key, b_key = jax.random.split(key)
+    W = jax.random.uniform(w_key, (in_dim, out_dim), minval=-limit, maxval=limit)
+    b = jnp.zeros(out_dim)
+    return {"W": W, "b": b}
+
+
+def init_q_params(
+    key: jax.random.PRNGKey,
+    obs_dim: int,
+    act_dim: int,
+    hidden_dim: int = 64,
+) -> Dict:
+    """Initialize Q-network parameters.
 
     Args:
-        key:         JAX random key
-        obs_dim:     size of observation vector (4 for CartPole, 2 for MountainCar)
-        hidden_dim:  hidden layer size (64 per proposal)
-        num_actions: number of actions (2 for CartPole, 3 for MountainCar)
-        init_scale:  multiply random weights by this (small = stable start)
+        key: JAX PRNG key.
+        obs_dim: Observation space dimensionality.
+        act_dim: Number of discrete actions.
+        hidden_dim: Hidden layer width (default 64 per proposal).
 
     Returns:
-        Dict with keys W1, b1, W2, b2, W3, b3
+        Nested dict of parameters: {layer1, layer2, output}.
     """
     k1, k2, k3 = jax.random.split(key, 3)
-
-    params = {
-        "W1": jax.random.normal(k1, (obs_dim, hidden_dim)) * init_scale,
-        "b1": jnp.zeros((hidden_dim,)),
-        "W2": jax.random.normal(k2, (hidden_dim, hidden_dim)) * init_scale,
-        "b2": jnp.zeros((hidden_dim,)),
-        "W3": jax.random.normal(k3, (hidden_dim, num_actions)) * init_scale,
-        "b3": jnp.zeros((num_actions,)),
+    return {
+        "layer1": _init_layer(k1, obs_dim, hidden_dim),
+        "layer2": _init_layer(k2, hidden_dim, hidden_dim),
+        "output": _init_layer(k3, hidden_dim, act_dim),
     }
 
-    return params
 
-
-def q_forward(params: Dict[str, jnp.ndarray],
-              obs: jnp.ndarray) -> jnp.ndarray:
-    """Forward pass: single observation → Q-values for all actions.
+def q_forward(params: Dict, obs: jnp.ndarray) -> jnp.ndarray:
+    """Forward pass for a single observation.
 
     Args:
-        params: weight dict from init_q_params
-        obs:    single observation, shape (obs_dim,)
+        params: Q-network parameters from init_q_params.
+        obs: Single observation, shape (obs_dim,).
 
     Returns:
-        Q-values, shape (num_actions,)
+        Q-values for each action, shape (act_dim,).
     """
-    x = jnp.asarray(obs, dtype=jnp.float32)
-
-    # Layer 1: obs → hidden (ReLU)
-    h1 = jax.nn.relu(x @ params["W1"] + params["b1"])
-
-    # Layer 2: hidden → hidden (ReLU)
-    h2 = jax.nn.relu(h1 @ params["W2"] + params["b2"])
-
-    # Output: hidden → Q-values (no activation — Q-values can be any real number)
-    q_values = h2 @ params["W3"] + params["b3"]
-
-    return q_values
+    x = obs
+    # Hidden layer 1
+    x = jnp.dot(x, params["layer1"]["W"]) + params["layer1"]["b"]
+    x = jax.nn.relu(x)
+    # Hidden layer 2
+    x = jnp.dot(x, params["layer2"]["W"]) + params["layer2"]["b"]
+    x = jax.nn.relu(x)
+    # Output layer (no activation — raw Q-values)
+    x = jnp.dot(x, params["output"]["W"]) + params["output"]["b"]
+    return x
 
 
-def q_forward_batch(params: Dict[str, jnp.ndarray],
-                    obs_batch: jnp.ndarray) -> jnp.ndarray:
-    """Forward pass over a batch of observations.
+def q_forward_batch(params: Dict, obs_batch: jnp.ndarray) -> jnp.ndarray:
+    """Forward pass for a batch of observations.
 
     Args:
-        params:    weight dict
-        obs_batch: shape (batch_size, obs_dim)
+        params: Q-network parameters.
+        obs_batch: Batch of observations, shape (batch_size, obs_dim).
 
     Returns:
-        Q-values, shape (batch_size, num_actions)
+        Q-values, shape (batch_size, act_dim).
     """
-    return jax.vmap(lambda obs: q_forward(params, obs))(obs_batch)
-
-
-def greedy_action(params: Dict[str, jnp.ndarray],
-                  obs: jnp.ndarray) -> jnp.ndarray:
-    """Pick the action with the highest Q-value."""
-    q_values = q_forward(params, obs)
-    return jnp.argmax(q_values).astype(jnp.int32)
+    return jax.vmap(q_forward, in_axes=(None, 0))(params, obs_batch)
