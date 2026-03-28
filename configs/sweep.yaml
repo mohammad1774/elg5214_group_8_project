@@ -1,0 +1,57 @@
+# ============================================================================
+# Master Sweep Configuration — ELG5214 Group 8
+# ============================================================================
+
+sweep:
+  learning_rates: [0.0001, 0.0005, 0.001]
+  gammas: [0.99, 0.95]
+  seeds: [0, 1, 2, 3, 4]
+  environments: ["cartpole", "mountaincar"]
+  reward_types: ["dense", "sparse"]
+
+model:
+  hidden_dim: 64
+  num_layers: 2
+  activation: "relu"
+
+num_episodes: 2000
+max_steps: 200
+eval_episodes: 100
+log_every: 50
+
+buffer_capacity: 50000
+batch_size: 64
+warmup_steps: 100
+target_update_freq: 500
+epsilon_start: 1.0
+epsilon_end: 0.01
+epsilon_decay_episodes: 1000
+updates_per_episode: 4
+gradient_clip_norm: 10.0
+
+ppo:
+  n_steps: 128
+  n_epochs: 4
+  mini_batch_size: 64
+  clip_epsilon: 0.2
+  gae_lambda: 0.95
+  gradient_clip_norm: 10.0
+
+entropy:
+  alpha: [0.01, 0.05]
+
+rnd:
+  beta: [0.1, 1.0]
+  predictor_lr: 0.001
+  hidden_dim: 64
+
+icm:
+  eta: [0.1, 1.0]
+  forward_loss_weight: 0.2
+  inverse_loss_weight: 0.8
+  hidden_dim: 64
+
+evaluation:
+  threshold_fraction: 0.9
+  cartpole_max_return: 500
+  mountaincar_max_return: -110
