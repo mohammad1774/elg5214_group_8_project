@@ -262,11 +262,11 @@ def train_dqn_rnd(
         losses.append(avg_loss)
         intrinsic_rewards.append(mean_intr)
 
-        logger.info(
-            f"Episode {episode:4d} - Reward: {ep_reward:.3f}, "
-            f"Length: {ep_length}, Loss: {avg_loss:.4f}, "
-            f"Intrinsic: {mean_intr:.4f}, Epsilon: {epsilon:.3f}"
-        )
+        # logger.info(
+        #     f"Episode {episode:4d} - Reward: {ep_reward:.3f}, "
+        #     f"Length: {ep_length}, Loss: {avg_loss:.4f}, "
+        #     f"Intrinsic: {mean_intr:.4f}, Epsilon: {epsilon:.3f}"
+        # )
         met_df.add_episode(
             seed=seed, episode=episode, reward=ep_reward,
             episode_length=ep_length, loss=avg_loss,

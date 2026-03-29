@@ -5,7 +5,7 @@
 
 # Sweep grid (bash script loops over these)
 sweep:
-  seeds: [0, 1]
+  seeds: [3]
   learning_rates: [0.01, 0.001, 0.0005]
   gammas: [0.99, 0.95]
   alphas: [0.01, 0.05]
