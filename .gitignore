@@ -2,3 +2,4 @@ __pycache__/
 *Zone.Identifier
 venv/
 .env
+dl_env/
