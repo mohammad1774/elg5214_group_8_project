@@ -1,3 +1,5 @@
 venv/
+.venv/
 .env
 **Zone.identifier
+__pycache__/

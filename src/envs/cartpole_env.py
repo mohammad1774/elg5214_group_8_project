@@ -91,20 +91,18 @@ class CartPoleSparseWrapper:
             key, state, action, params
         )
 
-        # Sparse: zero during episode, +1 if survived at done, 0 if fell
+        # Success = pole survived to max steps (time is 0-indexed, so
+        # next_state.time >= params.max_steps_in_episode means we hit the limit)
+        survived = next_state.time >= params.max_steps_in_episode
+
+        # Sparse: 0 during episode, +1 if survived full episode, 0 if fell
         sparse_reward = jnp.where(
             done,
-            jnp.where(dense_reward > 0.0, 1.0, 0.0),
+            jnp.where(survived, 1.0, 0.0),
             0.0,
         )
 
         return obs, next_state, sparse_reward, done, info
-
-    def action_space(self, params):
-        return self.env.action_space(params)
-
-    def observation_space(self, params):
-        return self.env.observation_space(params)
 
 
 def make_cartpole_sparse():
