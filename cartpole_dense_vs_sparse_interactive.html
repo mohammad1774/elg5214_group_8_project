@@ -1,0 +1,144 @@
+<style>
+.row { display:flex; gap:20px; margin:0 0 16px; }
+.col { flex:1; }
+.col h4 { margin:0 0 8px; font-size:14px; font-weight:500; color:var(--color-text-primary); }
+.track {background:#001710 ; height:80px; position:relative; border-bottom:2px solid var(--color-border-secondary); border-radius:0; margin:0 0 8px; overflow:hidden; }
+.cart { width:40px; height:18px; background:var(--color-text-secondary); border-radius:4px; position:absolute; bottom:0; transition:left 0.15s; }
+.pole { width:3px; height:50px; position:absolute; bottom:18px; transform-origin:bottom center; transition:transform 0.15s, left 0.15s; border-radius:2px; }
+.pole-d { background:#1D9E75; }
+.pole-s { background:#D85A30; }
+.timeline { display:flex; gap:1px; height:28px; align-items:flex-end; margin:0 0 4px; }
+.bar { flex:1; min-width:0; border-radius:2px 2px 0 0; transition:height 0.1s; }
+.bar-d { background:#5DCAA5; }
+.bar-s { background:#ec4e0a; }
+.bar-zero { background:var(--color-border-tertiary); }
+.lbl { font-size:12px; color:var(--color-text-secondary); display:flex; justify-content:space-between; margin:0 0 4px; }
+.total { font-size:18px; font-weight:500; margin:4px 0 0; }
+.total-d { color:#0F6E56; }
+.total-s { color:#993C1D; }
+.status { font-size:12px; padding:3px 10px; border-radius:12px; display:inline-block; margin:4px 0 0; }
+.status-alive { background:var(--color-background-success); color:var(--color-text-success); }
+.status-fell { background:var(--color-background-danger); color:var(--color-text-danger); }
+.status-won { background:var(--color-background-info); color:var(--color-text-info); }
+.ctrls { display:flex; gap:10px; align-items:center; margin:0 0 16px; }
+</style>
+
+<div class="ctrls">
+  <button onclick="startSim()">Run episode</button>
+  <button onclick="resetSim()">Reset</button>
+  <span style="font-size:13px;color:var(--color-text-secondary)">Step: <span id="step-num">0</span> / 20</span>
+  <span style="font-size:12px;color:var(--color-text-tertiary);margin-left:auto">Simplified 20-step simulation</span>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h4>Dense reward</h4>
+    <div class="track" id="track-d">
+      <div class="cart" id="cart-d" style="left:calc(50% - 20px)"></div>
+      <div class="pole pole-d" id="pole-d" style="left:calc(50% - 1.5px);transform:rotate(0deg)"></div>
+    </div>
+    <div class="lbl"><span>Step rewards</span><span id="sum-d-label">each step: +1 if alive</span></div>
+    <div class="timeline" id="timeline-d"></div>
+    <div class="total total-d" id="total-d">Total: 0</div>
+    <div id="status-d"></div>
+  </div>
+  <div class="col">
+    <h4>Sparse reward</h4>
+    <div class="track" id="track-s">
+      <div class="cart" id="cart-s" style="left:calc(50% - 20px)"></div>
+      <div class="pole pole-s" id="pole-s" style="left:calc(50% - 1.5px);transform:rotate(0deg)"></div>
+    </div>
+    <div class="lbl"><span>Step rewards</span><span id="sum-s-label">each step: 0 always</span></div>
+    <div class="timeline" id="timeline-s"></div>
+    <div class="total total-s" id="total-s">Total: 0</div>
+    <div id="status-s"></div>
+  </div>
+</div>
+
+<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 16px;font-size:13px;color:var(--color-text-secondary);line-height:1.7">
+  <span style="font-weight:500;color:var(--color-text-primary)">Why this matters for learning:</span>
+  Dense gives the agent a gradient — "I survived 50 steps last time, 60 this time, I'm improving." 
+  Sparse gives nothing until the very end — the agent has no idea if it's getting better until it either survives the full episode or fails. That's why sparse needs exploration mechanisms like RND and ICM to provide intermediate learning signal.
+</div>
+
+<script>
+const MAX=20;
+let step=0, timer=null, angles=[], alive=true;
+function initBars(){
+  ['d','s'].forEach(t=>{
+    const tl=document.getElementById('timeline-'+t);
+    tl.innerHTML='';
+    for(let i=0;i<MAX;i++){
+      const b=document.createElement('div');
+      b.className='bar bar-zero';
+      b.style.height='2px';
+      b.id='bar-'+t+'-'+i;
+      tl.appendChild(b);
+    }
+  });
+}
+function resetSim(){
+  clearInterval(timer);
+  step=0;alive=true;angles=[];
+  document.getElementById('step-num').textContent='0';
+  document.getElementById('total-d').textContent='Total: 0';
+  document.getElementById('total-s').textContent='Total: 0';
+  document.getElementById('status-d').innerHTML='';
+  document.getElementById('status-s').innerHTML='';
+  document.getElementById('sum-d-label').textContent='each step: +1 if alive';
+  document.getElementById('sum-s-label').textContent='each step: 0 always';
+  ['d','s'].forEach(t=>{
+    document.getElementById('cart-'+t).style.left='calc(50% - 20px)';
+    document.getElementById('pole-'+t).style.left='calc(50% - 1.5px)';
+    document.getElementById('pole-'+t).style.transform='rotate(0deg)';
+  });
+  initBars();
+}
+function doStep(){
+  if(step>=MAX||!alive){
+    clearInterval(timer);
+    if(alive&&step>=MAX){
+      document.getElementById('status-d').innerHTML='<span class="status status-won">Survived! +1 sparse</span>';
+      document.getElementById('status-s').innerHTML='<span class="status status-won">Survived! Got +1</span>';
+      const bd=document.getElementById('bar-s-'+(MAX-1));
+      if(bd){bd.className='bar bar-s';bd.style.height='28px';}
+      document.getElementById('total-s').textContent='Total: 1';
+    }
+    return;
+  }
+  let angle=(Math.random()-0.5)*3+step*0.4*(Math.random()-0.3);
+  angle=Math.max(-14,Math.min(14,angle));
+  angles.push(angle);
+  let fell=Math.abs(angle)>12;
+  let cartOff=(angle/12)*35;
+  ['d','s'].forEach(t=>{
+    document.getElementById('cart-'+t).style.left='calc(50% - 20px + '+cartOff+'px)';
+    document.getElementById('pole-'+t).style.left='calc(50% - 1.5px + '+cartOff+'px)';
+    document.getElementById('pole-'+t).style.transform='rotate('+angle+'deg)';
+  });
+  if(!fell){
+    const bd=document.getElementById('bar-d-'+step);
+    if(bd){bd.className='bar bar-d';bd.style.height='28px';}
+    const bs=document.getElementById('bar-s-'+step);
+    if(bs){bs.className='bar bar-zero';bs.style.height='2px';}
+    document.getElementById('total-d').textContent='Total: '+(step+1);
+    document.getElementById('total-s').textContent='Total: 0';
+  } else {
+    alive=false;
+    document.getElementById('status-d').innerHTML='<span class="status status-fell">Pole fell at step '+(step+1)+'</span>';
+    document.getElementById('status-s').innerHTML='<span class="status status-fell">Pole fell. Got 0</span>';
+    document.getElementById('total-d').textContent='Total: '+step;
+    document.getElementById('total-s').textContent='Total: 0';
+    document.getElementById('sum-d-label').textContent='got +1 for '+step+' steps';
+    document.getElementById('sum-s-label').textContent='0 the entire time';
+    clearInterval(timer);
+  }
+  step++;
+  document.getElementById('step-num').textContent=step;
+}
+function startSim(){
+  resetSim();
+  timer=setInterval(doStep,300);
+}
+initBars();
+</script>

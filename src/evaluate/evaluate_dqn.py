@@ -1,30 +1,16 @@
 """
 evaluate_dqn.py — Greedy evaluation for all DQN agent variants.
 
-WHAT IT DOES:
-    Takes trained Q-network params, runs episodes with greedy action
-    selection (always pick argmax Q), and reports:
-        - mean_reward:   average total return per episode
-        - std_reward:    standard deviation of returns
-        - mean_length:   average episode length
-        - success_rate:  fraction of episodes that "succeeded"
+Works with: DQN baseline, DQN+entropy, DQN+RND, DQN+ICM
+Any agent with a greedy_action(obs) method can be evaluated here.
 
-HOW SUCCESS IS DEFINED:
-    CartPole:     success = survived to max_steps (pole didn't fall)
-    MountainCar:  success = reached the goal (position >= 0.5)
+SUCCESS DEFINITION:
+    CartPole:     survived the full max_steps (pole never fell)
+    MountainCar:  reached goal position (>= 0.5)
 
-    Since we run both envs, we use a general heuristic:
-    success = episode lasted max_steps OR total reward > 0.
-
-WHY A PYTHON LOOP (not lax.scan):
-    Evaluation doesn't need to be fast — we only run 50-100 episodes.
-    A Python loop is clearer and easier to debug. The training loop
-    uses lax.scan because it runs thousands of episodes.
-
-CALLED FROM:
-    - Every DQN training loop (train_dqn.py, train_dqn_entropy.py, etc.)
-      at intervals during training (every log_every episodes)
-    - Every DQN test script (test_dqn_agent.py, etc.) for final evaluation
+    We detect which env we're in by checking obs_dim:
+        obs_dim=4 → CartPole
+        obs_dim=2 → MountainCar
 
 USED BY: Students A and B (all DQN variants)
 """
@@ -71,6 +57,7 @@ def evaluate_dqn_greedy(
         total_reward = 0.0
         done = False
         step = 0
+        last_obs = obs
 
         while (not bool(done)) and (step < max_steps):
             # Greedy: always pick argmax Q
@@ -83,14 +70,27 @@ def evaluate_dqn_greedy(
             )
 
             total_reward += float(reward)
+            last_obs = next_obs
             obs = next_obs
             state = next_state
             step += 1
 
         rewards.append(total_reward)
         lengths.append(step)
-        # Success heuristic: survived max_steps OR got positive reward
-        successes.append(float(step >= max_steps or total_reward > 0))
+
+        # Determine success based on environment type
+        obs_dim = last_obs.shape[0]
+        if obs_dim == 4:
+            # CartPole: success = survived full episode (pole never fell)
+            success = (not bool(done)) or (step >= max_steps)
+        elif obs_dim == 2:
+            # MountainCar: success = reached goal (position >= 0.5)
+            success = float(last_obs[0]) >= 0.5
+        else:
+            # Fallback
+            success = step >= max_steps
+
+        successes.append(float(success))
 
     rewards_arr = jnp.array(rewards, dtype=jnp.float32)
     lengths_arr = jnp.array(lengths, dtype=jnp.float32)

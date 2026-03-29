@@ -68,16 +68,18 @@ def evaluate_ppo(
             max_steps=max_steps,
             greedy=greedy,
         )
-        return rollout["total_reward"], rollout["episode_length"]
+        return rollout["total_reward"], rollout["episode_length"], rollout["observations"][-1]
 
     # vmap across all episodes for fast parallel evaluation
-    rewards, lengths = jax.vmap(run_episode)(keys)
+    rewards, lengths, last_obs = jax.vmap(run_episode)(keys)
 
-    # Success heuristic: survived near max_steps OR positive total reward
-    successes = jnp.where(
-        lengths >= max_steps - 1, 1.0,
-        jnp.where(rewards > 0, 1.0, 0.0)
-    )
+    # Success based on environment:
+    # CartPole (obs_dim=4): survived full episode (length >= max_steps)
+    # MountainCar (obs_dim=2): reached goal (position >= 0.5)
+    if num_actions == 2:  # CartPole
+        successes = jnp.where(lengths >= max_steps, 1.0, 0.0)
+    else:  # MountainCar
+        successes = jnp.where(last_obs[:, 0] >= 0.5, 1.0, 0.0)
 
     return {
         "mean_reward": float(jnp.mean(rewards)),
