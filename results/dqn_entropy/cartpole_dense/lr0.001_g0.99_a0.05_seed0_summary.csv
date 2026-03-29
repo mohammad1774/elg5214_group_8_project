@@ -1,0 +1,2 @@
+seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,backend,devices,action,mean_length,wall_time_s,env_name,reward_type
+0,DQN_Entropy,0.001,0.99,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1130.559625779,cartpole,dense

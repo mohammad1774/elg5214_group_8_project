@@ -1,0 +1,17 @@
+2026-03-29 15:31:10 | INFO | ============================================================
+2026-03-29 15:31:10 | INFO | DEVICE / COMPUTE INFORMATION
+2026-03-29 15:31:10 | INFO |   JAX backend       : GPU
+2026-03-29 15:31:10 | INFO |   Platform          : gpu
+2026-03-29 15:31:10 | INFO |   Num devices       : 2
+2026-03-29 15:31:10 | INFO |   Device            : cuda:0
+2026-03-29 15:31:10 | INFO |   Device            : cuda:1
+2026-03-29 15:31:10 | INFO |   GPU name          : Tesla T4
+2026-03-29 15:31:10 | INFO | ============================================================
+2026-03-29 15:31:10 | INFO | DQN+Entropy | seed=0, lr=0.0005, gamma=0.99, alpha=0.05
+2026-03-29 15:31:10 | INFO | Env: mountaincar/sparse, obs_dim=2, num_actions=3
+2026-03-29 15:31:13 | INFO | Episode    1 - Reward: -1.000, Length: 200, Loss: 0.0000, Entropy: 0.0000, Epsilon: 0.998
+2026-03-29 15:31:19 | INFO | Episode    2 - Reward: -1.000, Length: 200, Loss: -0.0487, Entropy: 1.0985, Epsilon: 0.995
+2026-03-29 15:31:21 | INFO | Episode    3 - Reward: -1.000, Length: 200, Loss: -0.0546, Entropy: 1.0985, Epsilon: 0.993
+2026-03-29 15:31:24 | INFO | Episode    4 - Reward: -1.000, Length: 200, Loss: -0.0467, Entropy: 1.0985, Epsilon: 0.990
+2026-03-29 15:31:26 | INFO | Episode    5 - Reward: -1.000, Length: 200, Loss: -0.0517, Entropy: 1.0985, Epsilon: 0.988
+2026-03-29 15:31:29 | INFO | Episode    6 - Reward: -1.000, Length: 200, Loss: -0.0526, Entropy: 1.0985, Epsilon: 0.985
