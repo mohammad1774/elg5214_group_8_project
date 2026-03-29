@@ -5,7 +5,7 @@
 
 # Sweep grid (bash script loops over these)
 sweep:
-  seeds: [0, 1, 2, 3, 4]
+  seeds: [0, 1]
   learning_rates: [0.0001, 0.0005, 0.001]
   gammas: [0.99, 0.95]
   betas: [0.1, 1.0]
@@ -16,12 +16,12 @@ sweep:
     - { name: "mountaincar", reward: "sparse" }
 
 # Training hyperparameters (fixed across all sweep runs)
-num_episodes: 2000
+num_episodes: 1000
 max_steps: 200
 log_every: 50
 
 # DQN-specific
-buffer_capacity: 50000
+buffer_capacity: 25000
 batch_size: 64
 warmup_steps: 100
 target_update_freq: 500
