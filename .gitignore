@@ -6,3 +6,4 @@ dl_env/
 rl_jax/
 rl_jax_cpu_env/
 rl_jax_gpu_env/
+rl_jax_env/
