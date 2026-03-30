@@ -1,0 +1,9 @@
+2026-03-29 19:06:25 | INFO | ============================================================
+2026-03-29 19:06:25 | INFO | DEVICE / COMPUTE INFORMATION
+2026-03-29 19:06:25 | INFO |   JAX backend       : CPU
+2026-03-29 19:06:25 | INFO |   Platform          : cpu
+2026-03-29 19:06:25 | INFO |   Num devices       : 1
+2026-03-29 19:06:25 | INFO |   Device            : TFRT_CPU_0
+2026-03-29 19:06:25 | INFO | ============================================================
+2026-03-29 19:06:25 | INFO | DQN+RND | seed=3, lr=0.01, gamma=0.99, beta=0.1
+2026-03-29 19:06:25 | INFO | Env: cartpole/dense, obs_dim=4, num_actions=2

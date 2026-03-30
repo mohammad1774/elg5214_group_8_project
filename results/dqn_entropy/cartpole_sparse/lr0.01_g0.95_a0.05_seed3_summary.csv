@@ -1,0 +1,2 @@
+seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,backend,devices,action,mean_length,wall_time_s,env_name,reward_type
+3,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,277.0988399710002,cartpole,sparse

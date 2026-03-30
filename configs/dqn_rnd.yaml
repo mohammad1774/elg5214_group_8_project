@@ -5,7 +5,7 @@
 
 # Sweep grid (bash script loops over these)
 sweep:
-  seeds: [0, 1, 2, 3, 4]
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   learning_rates: [0.01, 0.0005, 0.001]
   gammas: [0.99, 0.95]
   betas: [0.1, 1.0]
@@ -22,7 +22,7 @@ log_every: 100
 
 # DQN-specific
 buffer_capacity: 25000
-batch_size: 256
+batch_size: 128
 warmup_steps: 100
 target_update_freq: 500
 epsilon_start: 1.0

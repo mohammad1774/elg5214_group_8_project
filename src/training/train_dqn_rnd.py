@@ -282,7 +282,7 @@ def train_dqn_rnd(
 
             eval_stats = evaluate_dqn_greedy(
                 env=env, env_params=env_params,
-                q_params=q_params, num_episodes=25,
+                q_params=q_params, num_episodes=10,
                 max_steps=max_steps, seed=seed + episode,
             )
             eval_success_rates.append(eval_stats["success_rate"])

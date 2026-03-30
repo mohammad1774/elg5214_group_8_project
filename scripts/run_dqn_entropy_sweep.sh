@@ -1,39 +1,58 @@
 #!/bin/bash
 # ============================================================================
-# DQN + Entropy Regularization — Full Sweep
+# DQN + Entropy Regularization — Full Sweep (CPU)
 # Student A (Mohammad)
 #
 # Reads sweep grid from configs/dqn_entropy.yaml
 # Skips runs that already have output CSVs (resume-safe)
 #
 # Usage:
-#   bash scripts/run_dqn_entropy_sweep.sh                 # sequential
-#   bash scripts/run_dqn_entropy_sweep.sh --parallel 2    # 2 at a time
-#   bash scripts/run_dqn_entropy_sweep.sh --parallel 3    # 3 at a time
-#
-# Single run:
-#   python -m src.test.test_dqn_entropy_agent \
-#       --seed 0 --lr 0.001 --gamma 0.99 --alpha 0.01 \
-#       --env cartpole --reward sparse
+#   bash scripts/run_dqn_entropy_sweep_cpu.sh
+#   bash scripts/run_dqn_entropy_sweep_cpu.sh --parallel 2
+#   bash scripts/run_dqn_entropy_sweep_cpu.sh --parallel 4
 # ============================================================================
+
+set -u
 
 # Parse --parallel flag
 PARALLEL=1
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        --parallel) PARALLEL="$2"; shift ;;
-        *) echo "Unknown arg: $1"; exit 1 ;;
+        --parallel)
+            PARALLEL="$2"
+            shift
+            ;;
+        *)
+            echo "Unknown arg: $1"
+            exit 1
+            ;;
     esac
     shift
 done
 
-# JAX GPU memory — split across parallel jobs
-export XLA_PYTHON_CLIENT_PREALLOCATE=false
-if [ "$PARALLEL" -gt 1 ]; then
-    export XLA_PYTHON_CLIENT_MEM_FRACTION=$(python3 -c "print(round(0.9 / $PARALLEL, 2))")
-else
-    export XLA_PYTHON_CLIENT_MEM_FRACTION=0.5
+# ----------------------------------------------------------------------
+# Force CPU
+# ----------------------------------------------------------------------
+export JAX_PLATFORMS=cpu
+
+# Remove GPU-specific settings if present
+unset XLA_PYTHON_CLIENT_PREALLOCATE
+unset XLA_PYTHON_CLIENT_MEM_FRACTION
+unset CUDA_VISIBLE_DEVICES
+
+# ----------------------------------------------------------------------
+# Control CPU threading to avoid oversubscription
+# ----------------------------------------------------------------------
+TOTAL_CORES=$(nproc)
+THREADS_PER_JOB=$(( TOTAL_CORES / PARALLEL ))
+if [ "$THREADS_PER_JOB" -lt 1 ]; then
+    THREADS_PER_JOB=1
 fi
+
+export OMP_NUM_THREADS=$THREADS_PER_JOB
+export OPENBLAS_NUM_THREADS=$THREADS_PER_JOB
+export MKL_NUM_THREADS=$THREADS_PER_JOB
+export NUMEXPR_NUM_THREADS=$THREADS_PER_JOB
 
 CONFIG="configs/dqn_entropy.yaml"
 
@@ -43,10 +62,11 @@ if [ ! -f "$CONFIG" ]; then
 fi
 
 echo "============================================"
-echo "  DQN + Entropy Regularization Sweep"
+echo "  DQN + Entropy Regularization Sweep (CPU)"
 echo "  Config: $CONFIG"
 echo "  Parallel jobs: $PARALLEL"
-echo "  GPU mem per job: $XLA_PYTHON_CLIENT_MEM_FRACTION"
+echo "  Total CPU cores: $TOTAL_CORES"
+echo "  Threads per job: $THREADS_PER_JOB"
 echo "============================================"
 echo ""
 
@@ -118,6 +138,8 @@ fi
 
 # ── Run ──────────────────────────────────────────────────────────
 
+FAILS=0
+
 if [ "$PARALLEL" -eq 1 ]; then
     # Sequential
     IDX=0
@@ -125,25 +147,40 @@ if [ "$PARALLEL" -eq 1 ]; then
         IDX=$((IDX + 1))
         echo "[$IDX/$REMAINING] $CMD"
         eval "$CMD"
+        STATUS=$?
+        if [ "$STATUS" -ne 0 ]; then
+            echo "[$IDX/$REMAINING] FAILED with exit code $STATUS"
+            FAILS=$((FAILS + 1))
+        fi
         echo ""
     done
 else
-    # Parallel: launch $PARALLEL jobs, wait for batch, launch next batch
+    # Parallel batch mode
     IDX=0
     while [ $IDX -lt $REMAINING ]; do
         PIDS=()
+        LABELS=()
+
         for ((j=0; j<PARALLEL && IDX<REMAINING; j++)); do
             CMD="${COMMANDS[$IDX]}"
             IDX=$((IDX + 1))
             echo "[$IDX/$REMAINING] START: $CMD"
             eval "$CMD" &
             PIDS+=($!)
+            LABELS+=("$IDX/$REMAINING")
         done
 
-        # Wait for this batch to finish before launching next
-        for PID in "${PIDS[@]}"; do
+        for k in "${!PIDS[@]}"; do
+            PID="${PIDS[$k]}"
+            LABEL="${LABELS[$k]}"
             wait "$PID"
+            STATUS=$?
+            if [ "$STATUS" -ne 0 ]; then
+                echo "[$LABEL] FAILED with exit code $STATUS"
+                FAILS=$((FAILS + 1))
+            fi
         done
+
         echo "--- batch done ---"
         echo ""
     done
@@ -151,6 +188,10 @@ fi
 
 echo "============================================"
 echo "  Sweep complete!"
-echo "  Total: $TOTAL | Ran: $REMAINING | Skipped: $SKIPPED"
+echo "  Total: $TOTAL | Ran: $REMAINING | Skipped: $SKIPPED | Failed: $FAILS"
 echo "  Results in: results/dqn_entropy/"
 echo "============================================"
+
+if [ "$FAILS" -ne 0 ]; then
+    exit 1
+fi

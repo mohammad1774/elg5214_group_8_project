@@ -13,6 +13,12 @@ The CLI provides sweep variables (seed, lr, gamma, alpha, env, reward).
 Student A (Mohammad)
 """
 
+import os
+os.environ["JAX_PLATFORM_NAME"] = "cpu"
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+
+
+
 import argparse
 import yaml
 import jax
@@ -23,6 +29,7 @@ from src.training.train_dqn_entropy import train_dqn_entropy
 from src.evaluate.evaluate_dqn import evaluate_dqn_greedy
 from src.utils.reusable import RLMetricsDataset, setup_logger, Timer, log_device_info
 
+jax.config.update("jax_platform_name", "cpu")
 
 def run(args):
     # Load fixed config from YAML
