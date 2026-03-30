@@ -1,0 +1,48 @@
+# ============================================================================
+# PPO + Entropy Regularization — Sweep Configuration
+# Student C — ELG5214 Group 8
+# ============================================================================
+
+algorithm: "ppo_entropy"
+
+# ── Sweep grid ──────────────────────────────────────────────
+sweep:
+  learning_rates: [0.0001, 0.0005, 0.001]
+  gammas: [0.99, 0.95]
+  seeds: [0, 1, 2, 3, 4]
+  environments: ["cartpole", "mountaincar"]
+  reward_types: ["dense", "sparse"]
+  alphas: [0.01, 0.05]          # entropy coefficient
+
+# ── Network architecture ────────────────────────────────────
+model:
+  hidden_dim: 64
+  num_layers: 2
+  activation: "relu"
+
+# ── Training ────────────────────────────────────────────────
+num_episodes: 2000
+max_steps: 200
+log_every: 50
+
+# ── PPO-specific ────────────────────────────────────────────
+ppo:
+  n_steps: 128
+  n_epochs: 4
+  mini_batch_size: 64
+  clip_epsilon: 0.2
+  gae_lambda: 0.95
+  gradient_clip_norm: 10.0
+
+# ── Evaluation ──────────────────────────────────────────────
+evaluation:
+  eval_episodes: 100
+  threshold_fraction: 0.9
+  cartpole_max_return: 500
+  mountaincar_max_return: -110
+
+# ── Parallel execution ──────────────────────────────────────
+parallel:
+  max_workers: 8              # number of concurrent CPU processes
+  jax_platform: "cpu"
+  per_process_threads: 2      # OMP/MKL threads per worker
