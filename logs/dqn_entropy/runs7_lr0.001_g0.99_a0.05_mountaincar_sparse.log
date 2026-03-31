@@ -518,3 +518,4 @@
 2026-03-30 16:08:58 | INFO | Episode  500 - Reward: -1.000, Length: 200, Loss: -0.0508, Entropy: 1.0986, Epsilon: 0.010
 2026-03-30 16:09:03 | INFO | [Episode  500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss= -0.0496  avg_entropy=1.0986  eval_success=0.000
 2026-03-30 16:09:03 | INFO | DQN+Entropy training: 3m 33.58s
+2026-03-30 16:09:27 | INFO | [Final Eval] success=0.000, mean_reward=-1.000
