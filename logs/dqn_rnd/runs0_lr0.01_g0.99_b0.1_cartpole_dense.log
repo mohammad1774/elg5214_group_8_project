@@ -8,3 +8,14 @@
 2026-03-31 17:37:26 | INFO | DQN+RND | seed=0, lr=0.01, gamma=0.99, beta=0.1
 2026-03-31 17:37:26 | INFO | Env: cartpole/dense, obs_dim=4, num_actions=2
 2026-03-31 17:38:01 | INFO | [Episode  100] eps=0.901  avg_reward=  21.850  avg_length= 21.85  avg_loss=  0.3198  avg_intrinsic=0.0013  eval_success=0.000
+2026-03-31 17:38:57 | INFO | [Episode  200] eps=0.802  avg_reward=  21.920  avg_length= 21.92  avg_loss=  1.1019  avg_intrinsic=0.0005  eval_success=0.000
+2026-03-31 17:39:42 | INFO | [Episode  300] eps=0.703  avg_reward=  33.190  avg_length= 33.19  avg_loss=  2.3629  avg_intrinsic=0.0149  eval_success=0.000
+2026-03-31 17:40:26 | INFO | [Episode  400] eps=0.604  avg_reward=  48.950  avg_length= 48.95  avg_loss=  5.5512  avg_intrinsic=0.0012  eval_success=0.000
+2026-03-31 17:41:21 | INFO | [Episode  500] eps=0.505  avg_reward=  88.630  avg_length= 88.63  avg_loss=  8.6107  avg_intrinsic=0.0006  eval_success=0.000
+2026-03-31 17:42:03 | INFO | [Episode  600] eps=0.406  avg_reward= 108.230  avg_length=108.23  avg_loss=  8.4779  avg_intrinsic=0.0024  eval_success=0.400
+2026-03-31 17:42:41 | INFO | [Episode  700] eps=0.307  avg_reward= 159.890  avg_length=159.89  avg_loss= 12.6991  avg_intrinsic=0.0009  eval_success=0.000
+2026-03-31 17:43:19 | INFO | [Episode  800] eps=0.208  avg_reward= 158.330  avg_length=158.33  avg_loss= 10.2527  avg_intrinsic=0.0006  eval_success=0.000
+2026-03-31 17:44:01 | INFO | [Episode  900] eps=0.109  avg_reward= 152.380  avg_length=152.38  avg_loss=  3.8746  avg_intrinsic=0.0035  eval_success=1.000
+2026-03-31 17:44:54 | INFO | [Episode 1000] eps=0.010  avg_reward= 137.210  avg_length=137.21  avg_loss=  2.4104  avg_intrinsic=0.0002  eval_success=0.000
+2026-03-31 17:44:54 | INFO | DQN+RND training: 7m 44.32s
+2026-03-31 17:45:13 | INFO | [Final Eval] success=0.000, mean_reward=139.250

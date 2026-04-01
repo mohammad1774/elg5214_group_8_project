@@ -1,0 +1,2 @@
+seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,backend,devices,action,mean_length,wall_time_s,env_name,reward_type
+7,DQN_RND,0.0005,0.95,9.449999809265137,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.449999809265137,359.83743828499973,cartpole,dense

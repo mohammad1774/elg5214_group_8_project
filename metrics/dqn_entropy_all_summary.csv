@@ -1,0 +1,483 @@
+seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,backend,devices,action,mean_length,wall_time_s,env_name,reward_type,env_reward,alpha
+0,DQN_Entropy,0.0005,0.95,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1116.4325159559994,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.0005,0.95,9.31999969482422,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1137.947765085999,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.0005,0.95,60.43000030517578,0.0999999940395355,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,60.43000030517578,289.7497267419967,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.0005,0.95,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,260.2898601909983,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.0005,0.95,9.359999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.359999656677246,261.1421031750069,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.0005,0.95,21.57999992370605,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,21.57999992370605,283.7184389419999,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.0005,0.95,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,247.73141614599444,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.0005,0.95,9.429999351501465,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,247.22178959200392,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.0005,0.95,9.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,248.29046992999795,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.0005,0.95,9.279999732971191,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,247.3253935999965,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.0005,0.95,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1125.3673196009986,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.0005,0.95,9.31999969482422,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1136.3869394239991,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.0005,0.95,55.52999877929688,0.0299999993294477,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,55.52999877929688,285.7059488149971,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.0005,0.95,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,256.02592243801337,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.0005,0.95,9.359999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.359999656677246,256.2567263189994,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.0005,0.95,20.94999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,20.94999885559082,280.57091317400045,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.0005,0.95,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,245.40754775299865,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.0005,0.95,9.429999351501465,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,245.404857268004,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.0005,0.95,9.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,246.4661636030069,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.0005,0.95,9.279999732971191,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,245.47778285401,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.0005,0.99,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1121.2604102230002,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.0005,0.99,9.329999923706056,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.329999923706056,1136.95655261,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.0005,0.99,44.18000030517578,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,44.18000030517578,285.0729041170125,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.0005,0.99,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,249.6499548139982,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.0005,0.99,9.359999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.359999656677246,249.25063916300127,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.0005,0.99,20.90999984741211,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,20.90999984741211,280.2019019569998,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.0005,0.99,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,251.0680069460068,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.0005,0.99,9.429999351501465,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,250.66784656699747,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.0005,0.99,9.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,251.83878767699932,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.0005,0.99,9.279999732971191,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,250.8084478909877,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.0005,0.99,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1115.198292553,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.0005,0.99,9.31999969482422,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1161.6012176169995,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.0005,0.99,44.39999771118164,0.0099999997764825,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,44.39999771118164,291.679524777006,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.0005,0.99,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,262.60553120600525,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.0005,0.99,9.359999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.359999656677246,261.94846320500073,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.0005,0.99,17.760000228881836,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,17.760000228881836,284.30862270299986,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.0005,0.99,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,250.4273971880029,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.0005,0.99,9.429999351501465,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,248.72427675299696,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.0005,0.99,9.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,250.5772861800069,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.0005,0.99,9.279999732971191,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,248.49103989600556,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.001,0.95,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1150.549881805,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.001,0.95,9.329999923706056,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.329999923706056,1119.5682318279996,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.001,0.95,10.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.369999885559082,279.13897569199617,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.001,0.95,9.40999984741211,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,264.5724145090062,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.001,0.95,10.199999809265137,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.199999809265137,264.4203764599952,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.001,0.95,10.059999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.059999465942385,271.6438909270073,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.001,0.95,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,250.00757113700087,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.001,0.95,10.420000076293944,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.420000076293944,250.20022150999284,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.001,0.95,9.609999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.609999656677246,250.50351883399708,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.001,0.95,19.270000457763672,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,19.270000457763672,250.35050358499572,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.001,0.95,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1126.141944248,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.001,0.95,9.329999923706056,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.329999923706056,1121.787751025001,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.001,0.95,9.369999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,280.2332310980128,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.001,0.95,9.40999984741211,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,265.4196071780025,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.001,0.95,10.199999809265137,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.199999809265137,264.9019093359966,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.001,0.95,9.710000038146973,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.710000038146973,272.944439865998,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.001,0.95,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,248.16799216800428,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.001,0.95,10.800000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.800000190734863,248.7159626770008,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.001,0.95,9.6899995803833,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.6899995803833,249.09767128099335,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.001,0.95,18.76000022888184,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,18.76000022888184,248.92608159099476,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.001,0.99,9.429999351501465,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.429999351501465,1141.229238923,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.001,0.99,9.329999923706056,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.329999923706056,1130.3570110280002,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.001,0.99,10.469999313354492,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.469999313354492,285.4159779659967,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.001,0.99,9.40999984741211,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,265.21260875300504,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.001,0.99,11.050000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,11.050000190734863,265.60922199899505,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.001,0.99,12.420000076293944,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,12.420000076293944,277.5478829960048,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.001,0.99,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,255.33518741799344,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.001,0.99,18.529998779296875,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,18.529998779296875,255.4546750790032,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.001,0.99,9.609999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.609999656677246,256.3234032659966,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.001,0.99,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,255.60309605499788,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.001,0.99,9.469999313354492,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1130.559625779,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.001,0.99,9.329999923706056,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.329999923706056,1122.4638311159997,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.001,0.99,10.949999809265137,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.949999809265137,272.12099084099464,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.001,0.99,9.40999984741211,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,256.9617994430009,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.001,0.99,11.199999809265137,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,11.199999809265137,256.81522831099574,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.001,0.99,10.119999885559082,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.119999885559082,265.1340204480075,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.001,0.99,9.300000190734863,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.300000190734863,268.74319977799314,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.001,0.99,25.920000076293945,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,25.920000076293945,268.4264422569977,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.001,0.99,9.859999656677246,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.859999656677246,268.03197512900806,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.001,0.99,9.309999465942385,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,267.539918591996,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.01,0.95,200.0,1.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1362.373312674,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.01,0.95,200.0,1.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1380.4406876250005,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,308.2933487120026,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,277.9363293320057,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,275.8317125009926,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,287.3024239969964,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.01,0.95,161.72999572753906,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,161.72999572753906,269.5390259549895,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,275.7675107699906,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,274.7389932990045,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.3310586879961,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.01,0.95,200.0,1.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1379.9312858340008,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.01,0.95,200.0,1.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1357.3903572609995,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,308.98066922900034,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,301.1424162589974,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,283.7456125859899,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.14431472199794,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.81949532800354,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,289.9267545600014,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,290.89073415599705,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.01,0.95,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,296.276036470008,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.01,0.99,200.0,1.0,[CudaDevice(id=0)],[CudaDevice(id=0)],greedy,200.0,822.0934734249968,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.01,0.99,200.0,1.0,[CudaDevice(id=0)],[CudaDevice(id=0)],greedy,200.0,818.4875619140003,cartpole,dense,cartpole_dense,0.01
+2,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,302.82652466099535,cartpole,dense,cartpole_dense,0.01
+3,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,320.9776027080079,cartpole,dense,cartpole_dense,0.01
+4,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,301.1776160409936,cartpole,dense,cartpole_dense,0.01
+5,DQN_Entropy,0.01,0.99,164.75999450683594,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,164.75999450683594,326.6037962860137,cartpole,dense,cartpole_dense,0.01
+6,DQN_Entropy,0.01,0.99,145.25999450683594,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,145.25999450683594,315.5522324659978,cartpole,dense,cartpole_dense,0.01
+7,DQN_Entropy,0.01,0.99,166.16000366210938,0.0499999970197677,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,166.16000366210938,318.3905815430044,cartpole,dense,cartpole_dense,0.01
+8,DQN_Entropy,0.01,0.99,199.84999084472656,0.9300000071525574,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,199.84999084472656,317.1772553900082,cartpole,dense,cartpole_dense,0.01
+9,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,321.7184384059947,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.01,0.99,200.0,1.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1376.504860932,cartpole,dense,cartpole_dense,0.05
+1,DQN_Entropy,0.01,0.99,199.3000030517578,0.85999995470047,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,199.3000030517578,1398.394297122,cartpole,dense,cartpole_dense,0.05
+2,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,347.2472259910137,cartpole,dense,cartpole_dense,0.05
+3,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,341.26070301100845,cartpole,dense,cartpole_dense,0.05
+4,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,354.8651158010034,cartpole,dense,cartpole_dense,0.05
+5,DQN_Entropy,0.01,0.99,147.52000427246094,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,147.52000427246094,364.6720428980043,cartpole,dense,cartpole_dense,0.05
+6,DQN_Entropy,0.01,0.99,184.52999877929688,0.1799999922513961,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,184.52999877929688,611.5134652120032,cartpole,dense,cartpole_dense,0.05
+7,DQN_Entropy,0.01,0.99,155.05999755859375,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,155.05999755859375,604.9118385589973,cartpole,dense,cartpole_dense,0.05
+8,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,607.4124622289964,cartpole,dense,cartpole_dense,0.05
+9,DQN_Entropy,0.01,0.99,200.0,1.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,619.4374893439963,cartpole,dense,cartpole_dense,0.05
+0,DQN_Entropy,0.1,0.99,200.0,1.0,[CudaDevice(id=0)],[CudaDevice(id=0)],greedy,200.0,1561.8897936139983,cartpole,dense,cartpole_dense,0.01
+1,DQN_Entropy,0.1,0.99,120.0999984741211,1.0,[CudaDevice(id=0)],[CudaDevice(id=0)],greedy,120.0999984741211,1226.3496589409988,cartpole,dense,cartpole_dense,0.01
+0,DQN_Entropy,0.0005,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1205.6572252920014,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.0005,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.929999351501465,1193.183056209,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,47.02999877929688,299.09926263199986,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,275.325723554,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,10.1899995803833,276.99814367,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.0005,0.95,0.949999988079071,0.0499999970197677,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,123.62999725341795,331.22996403199977,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,37.09999847412109,286.35870389999945,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,266.0570939950003,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,32.66999816894531,282.17600811900047,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,43.37999725341797,295.5044188289994,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.0005,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1221.4153636919982,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.0005,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.769999504089355,1214.318996062997,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,43.04999923706055,299.55789781100066,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,273.77619485000014,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,15.489999771118164,275.54818672999954,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,116.64999389648438,325.7088878149998,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,35.75,290.4351978909999,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,277.1704542010002,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,26.209999084472656,288.4423941790001,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.0005,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,44.06999969482422,298.38200781999967,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.0005,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1197.6949127200005,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.0005,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,11.670000076293944,1198.6026027179996,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,43.77000045776367,248.97425153800003,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,232.78971674199997,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,13.130000114440918,234.967464397,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.0005,0.99,0.959999978542328,0.0399999991059303,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,118.7199935913086,274.747078377,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,37.09999847412109,253.013493318,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,239.834018775,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,29.729999542236328,250.35404087100005,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,45.75,257.23756664199993,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.0005,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.469999313354492,1197.6442491409998,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.0005,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,10.829999923706056,1186.8316906389991,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,43.7599983215332,259.059173096,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,242.82186351500013,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.359999656677246,243.46764187100007,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,113.97000122070312,283.64434138900003,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,34.64999771118164,237.08501637299992,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,226.41920443800015,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,26.6299991607666,234.762573539,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.0005,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,42.70000076293945,243.93350528399992,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.001,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,10.710000038146973,1198.8987440590008,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.001,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1186.778574336,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,36.64999771118164,255.5112203220001,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,248.168674517,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,34.540000915527344,250.718887558,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,106.70999908447266,283.6646732620002,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,23.71999931335449,251.34590205600037,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,246.54730360899973,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,17.119998931884766,249.67179965399964,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,19.07999992370605,256.41995196000016,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.001,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,14.779999732971191,1223.6082171890012,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.001,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1195.1603790609988,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,36.2599983215332,289.29199642899994,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,278.0956826439997,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.001,0.95,0.949999988079071,0.0499999970197677,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,50.80999755859375,279.0599375210004,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,103.72999572753906,323.8406556320001,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,22.28999900817871,275.249065477,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,268.8031049880001,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,16.619998931884766,271.48399829400023,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.001,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,18.86999893188477,280.238367768,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,12.31999969482422,148.03541844099527,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.001,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1169.2284366269996,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,33.630001068115234,301.6980016739981,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,293.41487669000344,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,25.100000381469727,292.09882903599646,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,107.3499984741211,329.2301169279963,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,22.939998626708984,295.8259651629924,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,288.82218814200314,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,15.619999885559082,293.09906613000203,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,18.6299991607666,301.72720814100467,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.001,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,12.420000076293944,1189.628575576,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.001,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1150.0116467490006,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,33.869998931884766,281.2241608649929,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,272.6481230950012,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,24.82999992370605,269.9362799619994,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,100.81999969482422,307.49321774800774,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,22.10999870300293,226.912380838,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,220.448305278,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,16.739999771118164,223.959645308,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.001,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,18.729999542236328,233.908450146,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.01,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.359999656677246,1141.578023062999,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.01,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1149.5666168459993,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34000015258789,231.00176575699996,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,229.313933467,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34999942779541,229.35641001699992,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,232.782523333,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.420000076293944,279.0022304879999,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,281.871519973,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,280.0358669760001,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,280.00315843400017,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.01,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.359999656677246,1148.163935980001,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.01,0.95,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1163.556801308001,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34000015258789,278.4808452200002,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,277.0988399710002,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34999942779541,277.73536092300014,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,281.65143589299987,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.420000076293944,239.47055526299985,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,241.5451724200002,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,239.73952464000013,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.01,0.95,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,239.93406639399973,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.01,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.359999656677246,1135.9298198340002,cartpole,sparse,cartpole_sparse,0.01
+1,DQN_Entropy,0.01,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1140.9664119699992,cartpole,sparse,cartpole_sparse,0.01
+2,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34000015258789,248.37493041501148,cartpole,sparse,cartpole_sparse,0.01
+3,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,246.30473097799404,cartpole,sparse,cartpole_sparse,0.01
+4,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34999942779541,246.08200019599465,cartpole,sparse,cartpole_sparse,0.01
+5,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,249.64843416299848,cartpole,sparse,cartpole_sparse,0.01
+6,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.420000076293944,271.0971031710069,cartpole,sparse,cartpole_sparse,0.01
+7,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,272.76769656600663,cartpole,sparse,cartpole_sparse,0.01
+8,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,271.905207060001,cartpole,sparse,cartpole_sparse,0.01
+9,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,271.64395541000704,cartpole,sparse,cartpole_sparse,0.01
+0,DQN_Entropy,0.01,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.359999656677246,1133.7272976130007,cartpole,sparse,cartpole_sparse,0.05
+1,DQN_Entropy,0.01,0.99,1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,9.31999969482422,1149.133485141001,cartpole,sparse,cartpole_sparse,0.05
+2,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34000015258789,271.32800628698897,cartpole,sparse,cartpole_sparse,0.05
+3,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.40999984741211,270.50521097100864,cartpole,sparse,cartpole_sparse,0.05
+4,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.34999942779541,270.3182674669952,cartpole,sparse,cartpole_sparse,0.05
+5,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.309999465942385,272.4262374700047,cartpole,sparse,cartpole_sparse,0.05
+6,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.420000076293944,272.9169998099969,cartpole,sparse,cartpole_sparse,0.05
+7,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.429999351501465,274.5360279900051,cartpole,sparse,cartpole_sparse,0.05
+8,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.369999885559082,272.6015166040015,cartpole,sparse,cartpole_sparse,0.05
+9,DQN_Entropy,0.01,0.99,1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,9.279999732971191,273.344636378999,cartpole,sparse,cartpole_sparse,0.05
+0,DQN_Entropy,0.0005,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1947.087817328,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.0005,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1950.8264348010048,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,291.7902406590001,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.8192961370005,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,291.9939856029996,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,291.5738224589986,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,321.9224681849992,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,321.9545209770004,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.39686632399935,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.2946982220001,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.0005,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1942.6702936350048,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.0005,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1957.7980731479984,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,295.68118330200014,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,294.6107251779995,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,294.8640761030001,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,294.8288344350003,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.9543188939988,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.9124035329987,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.5046790619999,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.0005,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.758200272001,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.0005,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1881.6799180169985,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.0005,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1899.065134474004,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.94725956099865,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.0594955840006,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.04617515599966,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.87730721200023,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,280.8822982999991,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,280.609110858999,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,280.2025776619994,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.8851564560009,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.0005,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1891.75566341,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.0005,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1953.390759234,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,283.39924255999904,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,281.5492895160005,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,283.0232422570007,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,281.8458292489995,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.68318743500095,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.7814782109999,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,292.6049963339992,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.0005,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.0457124900004,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.001,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1965.803716563998,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.001,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1846.1806282750003,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.75853219300006,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.7784022490014,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.76982647299883,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,280.33869433899963,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,278.5806328059989,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.3153010049991,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.0797795180006,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.4605907509995,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.001,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1868.7546535099973,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.001,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1869.436603926002,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,277.4083496760013,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,277.2604048579997,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,277.48090758000035,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,277.4625862140001,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,289.9035455819994,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,289.8540057930004,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,290.08994046000043,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.001,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,289.9167314009992,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.001,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1841.8403917100004,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.001,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1833.5680698159997,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.573063586,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.17275743400023,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.5949355880002,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,322.8515336979999,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.8377356460005,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.8316605109994,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.4352363019998,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.7347585310008,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.001,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1838.1835155010008,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.001,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1834.0867798359975,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,318.2866233499999,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,314.29149853200033,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,314.8746886930003,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,314.1398251169994,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,310.1851434479995,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,309.9585217899994,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,309.9777412350004,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.001,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,309.8737578929995,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.01,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1961.7943370760004,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.01,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1956.2164355979985,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.95008899499953,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.72948436799925,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.5179684399991,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,293.9801194979991,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.0814955549995,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.46639021900046,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,308.21409279100044,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.5559470520002,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.01,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1954.0792577049976,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.01,0.95,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1962.448504426,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,300.9058293039998,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,300.67903764199946,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,300.49809928800096,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,301.00859732500066,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,281.0341762469998,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,281.11816122299933,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,280.98255529699964,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.01,0.95,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,281.4781324220003,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.01,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1687.751551827998,mountaincar,dense,mountaincar_dense,0.01
+1,DQN_Entropy,0.01,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1693.5350811810022,mountaincar,dense,mountaincar_dense,0.01
+2,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,337.4143973559994,mountaincar,dense,mountaincar_dense,0.01
+3,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,336.6549585869998,mountaincar,dense,mountaincar_dense,0.01
+4,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,337.65524764100064,mountaincar,dense,mountaincar_dense,0.01
+5,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,337.5831612000002,mountaincar,dense,mountaincar_dense,0.01
+6,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,338.7996058890003,mountaincar,dense,mountaincar_dense,0.01
+7,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,339.53720445100043,mountaincar,dense,mountaincar_dense,0.01
+8,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,339.0650874639996,mountaincar,dense,mountaincar_dense,0.01
+9,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,338.7111838240007,mountaincar,dense,mountaincar_dense,0.01
+0,DQN_Entropy,0.01,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1838.327530390001,mountaincar,dense,mountaincar_dense,0.05
+1,DQN_Entropy,0.01,0.99,-200.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1840.8754064179996,mountaincar,dense,mountaincar_dense,0.05
+2,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,363.2839938749994,mountaincar,dense,mountaincar_dense,0.05
+3,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,362.55257477600026,mountaincar,dense,mountaincar_dense,0.05
+4,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,362.2849779320004,mountaincar,dense,mountaincar_dense,0.05
+5,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,362.15539851500034,mountaincar,dense,mountaincar_dense,0.05
+6,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,352.7252056389998,mountaincar,dense,mountaincar_dense,0.05
+7,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,351.81084776399985,mountaincar,dense,mountaincar_dense,0.05
+8,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,351.41808113000025,mountaincar,dense,mountaincar_dense,0.05
+9,DQN_Entropy,0.01,0.99,-200.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,350.9319555960001,mountaincar,dense,mountaincar_dense,0.05
+0,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,222.22924263499957,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,221.98558457900072,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.09266942199972,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.62947628300023,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.5315609649988,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,210.23745210499877,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,214.6937548219994,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,214.61802957100008,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,211.997015637,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,211.53632971099975,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.70498805699933,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.7048177350007,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.4656529999993,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.50855933499952,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.1902671560001,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.15138639900036,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.90326750500023,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,208.1165194460009,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,227.4315381810011,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.0005,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,227.6426486399996,mountaincar,sparse,mountaincar_sparse,0.05
+0,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,239.11251790200004,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,239.4983627910001,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,240.20182927299996,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,240.1703477210001,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,237.52752042700013,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,236.97546660999976,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,238.956395486,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,239.44094121800023,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,236.1820853639997,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,236.16692340200007,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,269.5021708289996,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,269.81897955299974,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,260.2320555609999,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,260.0846870199998,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.2456931740003,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,279.2580218750004,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,272.53016547599964,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,272.35224027899994,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,235.3354611020004,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.0005,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,234.6805536960001,mountaincar,sparse,mountaincar_sparse,0.05
+0,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,223.7376927539999,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,224.60431958000024,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,246.1237310609995,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,246.45548663499997,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,245.79351670400047,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,245.82324178599995,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,249.7178896759997,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,249.68209636200027,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,252.2930879150008,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,251.75833826300092,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,253.92335083500075,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,254.13354280800013,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,256.5849913439997,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,256.7153878169993,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,258.1148397519992,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,258.1030131759999,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,224.03476909100027,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,223.25614966600008,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,212.0376525520005,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.001,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,211.9048713489992,mountaincar,sparse,mountaincar_sparse,0.05
+0,DQN_Entropy,0.001,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1971.622239785,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.001,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1957.795896673,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,330.35512365499926,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,330.56651984200107,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,330.48730904199874,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,330.3490723440009,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,204.596185405,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,204.86604274600003,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.828133146,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.790178859,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.001,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1960.2836905139995,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.001,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1948.4114361710017,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.88654174200008,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,214.1035015079999,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.378540024,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.384499101,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,212.682243405,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,213.575293808,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,228.96721257499985,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.001,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,228.726147825,mountaincar,sparse,mountaincar_sparse,0.05
+0,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,287.7908875789999,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,287.31968542899995,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,248.030851298,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.01,0.95,-0.5,0.25,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,194.3000030517578,247.5864811210004,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,225.79308170500008,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,225.3889817399995,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,231.1598991030005,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,231.19567048000044,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,234.33151492499928,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,234.0977709670005,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.17160836099995,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,209.3843587189995,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,202.78414629600047,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,202.97587099400064,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,210.21188413000075,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,210.41335554499983,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,218.239061237,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,218.2817514970002,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.7825233649992,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.01,0.95,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,207.93368256699975,mountaincar,sparse,mountaincar_sparse,0.05
+0,DQN_Entropy,0.01,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,2076.7080800469994,mountaincar,sparse,mountaincar_sparse,0.01
+1,DQN_Entropy,0.01,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,2092.862474530004,mountaincar,sparse,mountaincar_sparse,0.01
+2,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.0194997029994,mountaincar,sparse,mountaincar_sparse,0.01
+3,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.11681487699934,mountaincar,sparse,mountaincar_sparse,0.01
+4,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.0429691629997,mountaincar,sparse,mountaincar_sparse,0.01
+5,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,306.79927356499866,mountaincar,sparse,mountaincar_sparse,0.01
+6,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.7261197379994,mountaincar,sparse,mountaincar_sparse,0.01
+7,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.4085321399998,mountaincar,sparse,mountaincar_sparse,0.01
+8,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.6863921330005,mountaincar,sparse,mountaincar_sparse,0.01
+9,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.4942711980002,mountaincar,sparse,mountaincar_sparse,0.01
+0,DQN_Entropy,0.01,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1971.0228716600031,mountaincar,sparse,mountaincar_sparse,0.05
+1,DQN_Entropy,0.01,0.99,-1.0,0.0,"[CudaDevice(id=0), CudaDevice(id=1)]","[CudaDevice(id=0), CudaDevice(id=1)]",greedy,200.0,1956.7582901540009,mountaincar,sparse,mountaincar_sparse,0.05
+2,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.9353665639992,mountaincar,sparse,mountaincar_sparse,0.05
+3,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,307.9379235910001,mountaincar,sparse,mountaincar_sparse,0.05
+4,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,308.2607438059986,mountaincar,sparse,mountaincar_sparse,0.05
+5,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,308.04418053100017,mountaincar,sparse,mountaincar_sparse,0.05
+6,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,327.5123336310008,mountaincar,sparse,mountaincar_sparse,0.05
+7,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,327.6703564239997,mountaincar,sparse,mountaincar_sparse,0.05
+8,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,327.7948730379994,mountaincar,sparse,mountaincar_sparse,0.05
+9,DQN_Entropy,0.01,0.99,-1.0,0.0,[CpuDevice(id=0)],[CpuDevice(id=0)],greedy,200.0,327.93210811100107,mountaincar,sparse,mountaincar_sparse,0.05

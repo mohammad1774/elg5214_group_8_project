@@ -1,0 +1,18 @@
+2026-04-01 01:02:33 | INFO | ============================================================
+2026-04-01 01:02:33 | INFO | DEVICE / COMPUTE INFORMATION
+2026-04-01 01:02:33 | INFO |   JAX backend       : CPU
+2026-04-01 01:02:33 | INFO |   Platform          : cpu
+2026-04-01 01:02:33 | INFO |   Num devices       : 1
+2026-04-01 01:02:33 | INFO |   Device            : TFRT_CPU_0
+2026-04-01 01:02:33 | INFO | ============================================================
+2026-04-01 01:02:33 | INFO | DQN+RND | seed=3, lr=0.01, gamma=0.95, beta=1.0
+2026-04-01 01:02:33 | INFO | Env: cartpole/dense, obs_dim=4, num_actions=2
+2026-04-01 01:03:06 | INFO | [Episode  100] eps=0.901  avg_reward=  22.620  avg_length= 22.62  avg_loss=  0.2820  avg_intrinsic=0.0082  eval_success=0.000
+2026-04-01 01:03:38 | INFO | [Episode  200] eps=0.802  avg_reward=  23.280  avg_length= 23.28  avg_loss=  0.7921  avg_intrinsic=0.0018  eval_success=0.000
+2026-04-01 01:04:11 | INFO | [Episode  300] eps=0.703  avg_reward=  38.090  avg_length= 38.09  avg_loss=  1.4889  avg_intrinsic=0.0021  eval_success=0.000
+2026-04-01 01:04:47 | INFO | [Episode  400] eps=0.604  avg_reward=  54.000  avg_length= 54.00  avg_loss=  2.2594  avg_intrinsic=0.0011  eval_success=1.000
+2026-04-01 01:05:23 | INFO | [Episode  500] eps=0.505  avg_reward=  78.810  avg_length= 78.81  avg_loss=  3.6113  avg_intrinsic=0.0087  eval_success=1.000
+2026-04-01 01:05:59 | INFO | [Episode  600] eps=0.406  avg_reward= 111.840  avg_length=111.84  avg_loss=  6.9131  avg_intrinsic=0.0004  eval_success=1.000
+2026-04-01 01:05:59 | INFO | Early stopping at episode 600 — eval_success >= 0.99 for 3 consecutive evals
+2026-04-01 01:05:59 | INFO | DQN+RND training: 3m 34.45s
+2026-04-01 01:06:29 | INFO | [Final Eval] success=1.000, mean_reward=200.000

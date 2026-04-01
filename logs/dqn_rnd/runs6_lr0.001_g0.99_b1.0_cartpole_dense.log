@@ -1,0 +1,21 @@
+2026-04-01 00:14:01 | INFO | ============================================================
+2026-04-01 00:14:01 | INFO | DEVICE / COMPUTE INFORMATION
+2026-04-01 00:14:01 | INFO |   JAX backend       : CPU
+2026-04-01 00:14:01 | INFO |   Platform          : cpu
+2026-04-01 00:14:01 | INFO |   Num devices       : 1
+2026-04-01 00:14:01 | INFO |   Device            : TFRT_CPU_0
+2026-04-01 00:14:01 | INFO | ============================================================
+2026-04-01 00:14:01 | INFO | DQN+RND | seed=6, lr=0.001, gamma=0.99, beta=1.0
+2026-04-01 00:14:01 | INFO | Env: cartpole/dense, obs_dim=4, num_actions=2
+2026-04-01 00:14:35 | INFO | [Episode  100] eps=0.901  avg_reward=  22.930  avg_length= 22.93  avg_loss=  0.9324  avg_intrinsic=0.0017  eval_success=0.000
+2026-04-01 00:15:08 | INFO | [Episode  200] eps=0.802  avg_reward=  20.620  avg_length= 20.62  avg_loss=  0.9199  avg_intrinsic=0.0160  eval_success=0.000
+2026-04-01 00:15:40 | INFO | [Episode  300] eps=0.703  avg_reward=  17.060  avg_length= 17.06  avg_loss=  0.8192  avg_intrinsic=0.0159  eval_success=0.000
+2026-04-01 00:16:13 | INFO | [Episode  400] eps=0.604  avg_reward=  16.370  avg_length= 16.37  avg_loss=  1.1683  avg_intrinsic=0.0177  eval_success=0.000
+2026-04-01 00:16:46 | INFO | [Episode  500] eps=0.505  avg_reward=  13.900  avg_length= 13.90  avg_loss=  2.0529  avg_intrinsic=0.0164  eval_success=0.000
+2026-04-01 00:17:20 | INFO | [Episode  600] eps=0.406  avg_reward=  13.410  avg_length= 13.41  avg_loss=  3.0699  avg_intrinsic=0.0185  eval_success=0.000
+2026-04-01 00:17:55 | INFO | [Episode  700] eps=0.307  avg_reward=  11.620  avg_length= 11.62  avg_loss=  4.6227  avg_intrinsic=0.0084  eval_success=0.000
+2026-04-01 00:18:29 | INFO | [Episode  800] eps=0.208  avg_reward=  13.750  avg_length= 13.75  avg_loss=  5.1649  avg_intrinsic=0.0009  eval_success=0.000
+2026-04-01 00:19:05 | INFO | [Episode  900] eps=0.109  avg_reward=  25.970  avg_length= 25.97  avg_loss=  5.4279  avg_intrinsic=0.0005  eval_success=0.000
+2026-04-01 00:19:45 | INFO | [Episode 1000] eps=0.010  avg_reward=  48.280  avg_length= 48.28  avg_loss=  6.2558  avg_intrinsic=0.0006  eval_success=0.000
+2026-04-01 00:19:45 | INFO | DQN+RND training: 6m 2.44s
+2026-04-01 00:19:53 | INFO | [Final Eval] success=0.000, mean_reward=62.670

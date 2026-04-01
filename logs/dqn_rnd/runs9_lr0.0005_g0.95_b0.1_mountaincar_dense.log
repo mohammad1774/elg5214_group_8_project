@@ -1,0 +1,9 @@
+2026-04-01 15:53:09 | INFO | ============================================================
+2026-04-01 15:53:09 | INFO | DEVICE / COMPUTE INFORMATION
+2026-04-01 15:53:09 | INFO |   JAX backend       : CPU
+2026-04-01 15:53:09 | INFO |   Platform          : cpu
+2026-04-01 15:53:09 | INFO |   Num devices       : 1
+2026-04-01 15:53:09 | INFO |   Device            : TFRT_CPU_0
+2026-04-01 15:53:09 | INFO | ============================================================
+2026-04-01 15:53:09 | INFO | DQN+RND | seed=9, lr=0.0005, gamma=0.95, beta=0.1
+2026-04-01 15:53:09 | INFO | Env: mountaincar/dense, obs_dim=2, num_actions=3
