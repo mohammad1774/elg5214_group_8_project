@@ -1,6 +1,10 @@
 """
 test_dqn_entropy_agent.py — Run a single DQN+Entropy training run.
 
+Device selection is intentionally left to the shell environment so the same
+entry point can be used on CPU or GPU. Bash/Slurm scripts should set
+JAX_PLATFORMS / CUDA visibility as needed before invoking this module.
+
 Called by the bash sweep script with CLI arguments:
     python -m src.test.test_dqn_entropy_agent \
         --seed 0 --lr 0.001 --gamma 0.99 --alpha 0.01 \
@@ -13,12 +17,6 @@ The CLI provides sweep variables (seed, lr, gamma, alpha, env, reward).
 Student A (Mohammad)
 """
 
-import os
-os.environ["JAX_PLATFORM_NAME"] = "cpu"
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
-
-
-
 import argparse
 import yaml
 import jax
@@ -29,12 +27,15 @@ from src.training.train_dqn_entropy import train_dqn_entropy
 from src.evaluate.evaluate_dqn import evaluate_dqn_greedy
 from src.utils.reusable import RLMetricsDataset, setup_logger, Timer, log_device_info
 
-jax.config.update("jax_platform_name", "cpu")
-
 def run(args):
     # Load fixed config from YAML
     with open(args.config, "r") as f:
         config = yaml.safe_load(f)
+
+    log_dir = config.get("log_dir", "./logs/dqn_entropy")
+    results_dir = config.get("results_dir", "results/dqn_entropy")
+    project_name = config.get("project_name", "DQN_Entropy")
+    final_eval_episodes = config.get("final_eval_episodes", 100)
 
     # Setup environment
     env, env_params, obs_dim, num_actions = get_env(args.env, args.reward)
@@ -50,13 +51,13 @@ def run(args):
 
     # Logger
     run_id = f"s{args.seed}_lr{args.lr}_g{args.gamma}_a{args.alpha}_{args.env}_{args.reward}"
-    logger = setup_logger(run_id, path="./logs/dqn_entropy")
+    logger = setup_logger(run_id, path=log_dir)
     log_device_info(logger)
     logger.info(f"DQN+Entropy | seed={args.seed}, lr={args.lr}, gamma={args.gamma}, alpha={args.alpha}")
     logger.info(f"Env: {args.env}/{args.reward}, obs_dim={obs_dim}, num_actions={num_actions}")
 
     # Metrics
-    met_df = RLMetricsDataset("DQN_Entropy")
+    met_df = RLMetricsDataset(project_name)
 
     # Train
     timer = Timer("DQN+Entropy training")
@@ -94,7 +95,7 @@ def run(args):
     eval_stats = evaluate_dqn_greedy(
         env=env, env_params=env_params,
         q_params=results["final_q_params"],
-        num_episodes=100,
+        num_episodes=final_eval_episodes,
         max_steps=config["max_steps"],
         seed=args.seed + 99999,
     )
@@ -120,7 +121,7 @@ def run(args):
     )
 
     # Save per-run CSV
-    output_dir = f"results/dqn_entropy/{args.env}_{args.reward}"
+    output_dir = f"{results_dir}/{args.env}_{args.reward}"
     filename = f"lr{args.lr}_g{args.gamma}_a{args.alpha}_seed{args.seed}.csv"
     met_df.save(output_dir=output_dir, filename=filename)
 

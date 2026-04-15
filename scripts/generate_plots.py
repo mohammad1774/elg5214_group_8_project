@@ -2,28 +2,21 @@
 """
 generate_plots.py
 
-Student A plotting script for:
+Unified plotting script for:
 - dqn_entropy
 - dqn_rnd
-
-Expected episode CSV schema:
-seed,episode,reward,episode_length,loss,eval_success_rate,intrinsic_reward,
-policy_entropy,algorithm,learning_rate,gamma,env_name,reward_type,env_reward,alpha
-
-Expected summary CSV schema:
-seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,
-backend,devices,action,mean_length,wall_time_s,env_name,reward_type,
-env_reward,alpha
+- ppo_baseline
 
 Usage:
     python scripts/generate_plots.py --model dqn_entropy
     python scripts/generate_plots.py --model dqn_rnd
+    python scripts/generate_plots.py --model ppo_baseline
 
 Optional:
-    python scripts/generate_plots.py --model dqn_entropy \
-        --episode-csv metrics/dqn_entropy_all_episodes.csv \
-        --summary-csv metrics/dqn_entropy_all_summary.csv \
-        --out-dir visualizations/dqn_entropy
+    python scripts/generate_plots.py --model ppo_baseline \
+        --episode-csv metrics/PPOBaseline_dataset_metrics.csv \
+        --summary-csv metrics/PPOBaseline_dataset_metrics_summary.csv \
+        --out-dir visualizations/ppo_baseline
 """
 
 from __future__ import annotations
@@ -31,13 +24,14 @@ from __future__ import annotations
 import argparse
 import math
 from pathlib import Path
+from typing import Optional
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
-VALID_MODELS = {"dqn_entropy", "dqn_rnd"}
+VALID_MODELS = {"dqn_entropy", "dqn_rnd", "ppo_baseline"}
 
 
 def ensure_dir(path: Path) -> None:
@@ -65,21 +59,54 @@ def save_plot(fig: plt.Figure, path: Path) -> None:
 
 
 def prettify_model(model: str) -> str:
-    return model.replace("_", " ").upper()
+    mapping = {
+        "dqn_entropy": "DQN + Entropy",
+        "dqn_rnd": "DQN + RND",
+        "ppo_baseline": "PPO Baseline",
+    }
+    return mapping.get(model, model.replace("_", " ").upper())
 
 
 def mech_symbol(model: str) -> str:
-    return "α" if model == "dqn_entropy" else "β"
+    if model == "dqn_entropy":
+        return "α"
+    if model == "dqn_rnd":
+        return "β"
+    return ""
 
 
-def mech_col(model: str) -> str:
-    return "alpha" if model == "dqn_entropy" else "beta"
+def mech_col(model: str) -> Optional[str]:
+    if model == "dqn_entropy":
+        return "alpha"
+    if model == "dqn_rnd":
+        return "beta"
+    return None
+
 
 def metric_dir_name(model: str) -> str:
-    return "policy_entropy" if model == "dqn_entropy" else "intrinsic_rewards"
+    if model == "dqn_entropy":
+        return "policy_entropy"
+    if model == "dqn_rnd":
+        return "intrinsic_rewards"
+    return "policy_entropy"
 
 
-def validate_episode_df(df, model):
+def default_paths(model: str) -> tuple[Path, Path, Path]:
+    if model == "ppo_baseline":
+        return (
+            Path("metrics/PPOBaseline_dataset_metrics.csv"),
+            Path("metrics/PPOBaseline_dataset_metrics_summary.csv"),
+            Path("visualizations/ppo_baseline"),
+        )
+
+    return (
+        Path("metrics") / f"{model}_all_episodes.csv",
+        Path("metrics") / f"{model}_all_summary.csv",
+        Path("visualizations") / model,
+    )
+
+
+def validate_episode_df(df: pd.DataFrame, model: str) -> None:
     required = [
         "seed",
         "episode",
@@ -93,12 +120,11 @@ def validate_episode_df(df, model):
     ]
 
     if model == "dqn_entropy":
-        required += ["alpha"]
+        required += ["alpha", "policy_entropy"]
     elif model == "dqn_rnd":
         required += ["beta", "intrinsic_reward"]
-    elif model == "dqn_icm":
-        required += ["eta", "intrinsic_reward"]   # if you use eta for ICM
-    # add PPO variants similarly if needed
+    elif model == "ppo_baseline":
+        pass
 
     missing = [c for c in required if c not in df.columns]
     if missing:
@@ -110,11 +136,22 @@ def validate_episode_df(df, model):
 
 def validate_summary_df(df: pd.DataFrame, model: str) -> None:
     required = {
-        "seed", "algorithm", "learning_rate", "gamma",
-        "final_mean_reward", "final_success_rate",
-        "mean_length", "wall_time_s",
-        "env_name", "reward_type", "env_reward", mech_col(model)
+        "seed",
+        "algorithm",
+        "learning_rate",
+        "gamma",
+        "final_mean_reward",
+        "final_success_rate",
+        "mean_length",
+        "wall_time_s",
+        "env_name",
+        "reward_type",
     }
+
+    mcol = mech_col(model)
+    if mcol is not None:
+        required.add(mcol)
+
     missing = required - set(df.columns)
     if missing:
         raise ValueError(
@@ -136,29 +173,51 @@ def aggregate_episode_metric(
     return agg
 
 
+def config_group_cols(model: str) -> list[str]:
+    cols = ["env_name", "reward_type", "learning_rate", "gamma"]
+    mcol = mech_col(model)
+    if mcol is not None:
+        cols.append(mcol)
+    return cols
+
+
+def config_curve_cols(model: str) -> list[str]:
+    cols = ["learning_rate", "gamma"]
+    mcol = mech_col(model)
+    if mcol is not None:
+        cols.append(mcol)
+    return cols
+
+
+def format_cfg_label(model: str, keys) -> str:
+    mcol = mech_col(model)
+    if mcol is not None:
+        lr, gamma, mech = keys
+        return f"lr={lr}, γ={gamma}, {mech_symbol(model)}={mech}"
+    lr, gamma = keys
+    return f"lr={lr}, γ={gamma}"
+
+
 def plot_learning_curves(
     episodes_df: pd.DataFrame,
     model: str,
     out_dir: Path,
 ) -> None:
-    mcol = mech_col(model)
-
     agg = aggregate_episode_metric(
         episodes_df,
         metric="reward",
-        group_cols=["env_name", "reward_type", "learning_rate", "gamma", mcol],
+        group_cols=config_group_cols(model),
     )
 
     for (env_name, reward_type), sub in agg.groupby(["env_name", "reward_type"], dropna=False):
         fig, ax = plt.subplots(figsize=(10, 6))
 
-        for (lr, gamma, mech), curve in sub.groupby(["learning_rate", "gamma", mcol], dropna=False):
+        for keys, curve in sub.groupby(config_curve_cols(model), dropna=False):
             curve = curve.sort_values("episode")
             mean_y = smooth_series(curve["mean"], window=10)
             se_y = curve["se"]
 
-            label = f"lr={lr}, γ={gamma}, {mech_symbol(model)}={mech}"
-            ax.plot(curve["episode"], mean_y, label=label)
+            ax.plot(curve["episode"], mean_y, label=format_cfg_label(model, keys))
             ax.fill_between(
                 curve["episode"],
                 curve["mean"] - se_y,
@@ -181,16 +240,14 @@ def plot_seed_overlays(
     model: str,
     out_dir: Path,
 ) -> None:
-    mcol = mech_col(model)
-
+    cfg_cols = config_group_cols(model)
     best_cfg = (
-        summary_df.groupby(
-            ["env_name", "reward_type", "learning_rate", "gamma", mcol],
-            dropna=False
-        )["final_mean_reward"]
+        summary_df.groupby(cfg_cols, dropna=False)["final_mean_reward"]
         .mean()
         .reset_index()
     )
+
+    mcol = mech_col(model)
 
     for (env_name, reward_type), sub in best_cfg.groupby(["env_name", "reward_type"], dropna=False):
         best_row = sub.sort_values("final_mean_reward", ascending=False).iloc[0]
@@ -199,9 +256,11 @@ def plot_seed_overlays(
             (episodes_df["env_name"] == env_name) &
             (episodes_df["reward_type"] == reward_type) &
             (episodes_df["learning_rate"] == best_row["learning_rate"]) &
-            (episodes_df["gamma"] == best_row["gamma"]) &
-            (episodes_df[mcol] == best_row[mcol])
+            (episodes_df["gamma"] == best_row["gamma"])
         )
+        if mcol is not None:
+            mask &= (episodes_df[mcol] == best_row[mcol])
+
         plot_df = episodes_df.loc[mask].copy()
 
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -215,11 +274,18 @@ def plot_seed_overlays(
                 alpha=0.9,
             )
 
-        title_cfg = (
-            f"lr={best_row['learning_rate']}, "
-            f"γ={best_row['gamma']}, "
-            f"{mech_symbol(model)}={best_row[mcol]}"
-        )
+        if mcol is not None:
+            title_cfg = (
+                f"lr={best_row['learning_rate']}, "
+                f"γ={best_row['gamma']}, "
+                f"{mech_symbol(model)}={best_row[mcol]}"
+            )
+        else:
+            title_cfg = (
+                f"lr={best_row['learning_rate']}, "
+                f"γ={best_row['gamma']}"
+            )
+
         ax.set_title(
             f"{prettify_model(model)} — Seed Overlays — {env_name} ({reward_type})\n"
             f"Best config: {title_cfg}"
@@ -240,18 +306,28 @@ def plot_heatmaps(
     mcol = mech_col(model)
 
     for metric in ["final_mean_reward", "final_success_rate"]:
+        group_cols = ["env_name", "reward_type", "learning_rate", "gamma"]
+        if mcol is not None:
+            group_cols.insert(2, mcol)
+
         grouped = (
-            summary_df.groupby(
-                ["env_name", "reward_type", mcol, "learning_rate", "gamma"],
-                dropna=False
-            )[metric]
+            summary_df.groupby(group_cols, dropna=False)[metric]
             .mean()
             .reset_index()
         )
 
-        for (env_name, reward_type, mech_val), sub in grouped.groupby(
-            ["env_name", "reward_type", mcol], dropna=False
-        ):
+        if mcol is not None:
+            grouped_iter = grouped.groupby(["env_name", "reward_type", mcol], dropna=False)
+        else:
+            grouped_iter = grouped.groupby(["env_name", "reward_type"], dropna=False)
+
+        for keys, sub in grouped_iter:
+            if mcol is not None:
+                env_name, reward_type, mech_val = keys
+            else:
+                env_name, reward_type = keys
+                mech_val = None
+
             lr_vals = sorted(sub["learning_rate"].unique().tolist())
             gamma_vals = sorted(sub["gamma"].unique().tolist())
 
@@ -277,18 +353,25 @@ def plot_heatmaps(
                         ax.text(j, i, f"{val:.2f}", ha="center", va="center", fontsize=9)
 
             metric_name = "reward" if metric == "final_mean_reward" else "success"
-            ax.set_title(
-                f"{prettify_model(model)} — {metric_name.capitalize()} Heatmap\n"
-                f"{env_name} ({reward_type}), {mech_symbol(model)}={mech_val}"
-            )
+
+            if mcol is not None:
+                ax.set_title(
+                    f"{prettify_model(model)} — {metric_name.capitalize()} Heatmap\n"
+                    f"{env_name} ({reward_type}), {mech_symbol(model)}={mech_val}"
+                )
+                out_name = f"heatmap_{metric_name}_{model}_{env_name}_{reward_type}_{mech_val}.png"
+            else:
+                ax.set_title(
+                    f"{prettify_model(model)} — {metric_name.capitalize()} Heatmap\n"
+                    f"{env_name} ({reward_type})"
+                )
+                out_name = f"heatmap_{metric_name}_{model}_{env_name}_{reward_type}.png"
+
             ax.set_xlabel("Learning Rate")
             ax.set_ylabel("Gamma")
             fig.colorbar(im, ax=ax)
 
-            save_plot(
-                fig,
-                out_dir / f"heatmap_{metric_name}_{model}_{env_name}_{reward_type}_{mech_val}.png"
-            )
+            save_plot(fig, out_dir / out_name)
 
 
 def plot_model_specific_metric(
@@ -296,25 +379,38 @@ def plot_model_specific_metric(
     model: str,
     out_dir: Path,
 ) -> None:
-    mcol = mech_col(model)
-    metric = "policy_entropy" if model == "dqn_entropy" else "intrinsic_reward"
-    ylabel = "Policy Entropy" if model == "dqn_entropy" else "Intrinsic Reward"
-    prefix = "entropy_curve" if model == "dqn_entropy" else "intrinsic_reward_curve"
-    title_metric = "Entropy" if model == "dqn_entropy" else "Intrinsic Reward"
+    if model == "dqn_entropy":
+        metric = "policy_entropy"
+        ylabel = "Policy Entropy"
+        prefix = "entropy_curve"
+        title_metric = "Entropy"
+    elif model == "dqn_rnd":
+        metric = "intrinsic_reward"
+        ylabel = "Intrinsic Reward"
+        prefix = "intrinsic_reward_curve"
+        title_metric = "Intrinsic Reward"
+    else:
+        metric = "policy_entropy"
+        ylabel = "Policy Entropy"
+        prefix = "entropy_curve"
+        title_metric = "Entropy"
 
     agg = aggregate_episode_metric(
         episodes_df,
         metric=metric,
-        group_cols=["env_name", "reward_type", "learning_rate", "gamma", mcol],
+        group_cols=config_group_cols(model),
     )
 
     for (env_name, reward_type), sub in agg.groupby(["env_name", "reward_type"], dropna=False):
         fig, ax = plt.subplots(figsize=(10, 6))
 
-        for (lr, gamma, mech), curve in sub.groupby(["learning_rate", "gamma", mcol], dropna=False):
+        for keys, curve in sub.groupby(config_curve_cols(model), dropna=False):
             curve = curve.sort_values("episode")
-            label = f"lr={lr}, γ={gamma}, {mech_symbol(model)}={mech}"
-            ax.plot(curve["episode"], smooth_series(curve["mean"], window=10), label=label)
+            ax.plot(
+                curve["episode"],
+                smooth_series(curve["mean"], window=10),
+                label=format_cfg_label(model, keys),
+            )
             ax.fill_between(
                 curve["episode"],
                 curve["mean"] - curve["se"],
@@ -336,19 +432,16 @@ def plot_summary_bars(
     model: str,
     out_dir: Path,
 ) -> None:
-    mcol = mech_col(model)
+    cfg_cols = config_group_cols(model)
 
     grouped_reward = (
-        summary_df.groupby(
-            ["env_name", "reward_type", "learning_rate", "gamma", mcol],
-            dropna=False
-        )["final_mean_reward"]
+        summary_df.groupby(cfg_cols, dropna=False)["final_mean_reward"]
         .mean()
         .reset_index()
     )
 
     best_reward_rows = []
-    for (env_name, reward_type), sub in grouped_reward.groupby(["env_name", "reward_type"], dropna=False):
+    for (_, _), sub in grouped_reward.groupby(["env_name", "reward_type"], dropna=False):
         best_reward_rows.append(sub.sort_values("final_mean_reward", ascending=False).iloc[0])
     best_reward_df = pd.DataFrame(best_reward_rows)
 
@@ -368,16 +461,13 @@ def plot_summary_bars(
     save_plot(fig, out_dir / f"bar_final_reward_{model}.png")
 
     grouped_success = (
-        summary_df.groupby(
-            ["env_name", "reward_type", "learning_rate", "gamma", mcol],
-            dropna=False
-        )["final_success_rate"]
+        summary_df.groupby(cfg_cols, dropna=False)["final_success_rate"]
         .mean()
         .reset_index()
     )
 
     best_success_rows = []
-    for (env_name, reward_type), sub in grouped_success.groupby(["env_name", "reward_type"], dropna=False):
+    for (_, _), sub in grouped_success.groupby(["env_name", "reward_type"], dropna=False):
         best_success_rows.append(sub.sort_values("final_success_rate", ascending=False).iloc[0])
     best_success_df = pd.DataFrame(best_success_rows)
 
@@ -402,19 +492,16 @@ def plot_dense_vs_sparse(
     model: str,
     out_dir: Path,
 ) -> None:
-    mcol = mech_col(model)
+    cfg_cols = config_group_cols(model)
 
     grouped = (
-        summary_df.groupby(
-            ["env_name", "reward_type", "learning_rate", "gamma", mcol],
-            dropna=False
-        )["final_mean_reward"]
+        summary_df.groupby(cfg_cols, dropna=False)["final_mean_reward"]
         .mean()
         .reset_index()
     )
 
     best_rows = []
-    for (env_name, reward_type), sub in grouped.groupby(["env_name", "reward_type"], dropna=False):
+    for (_, _), sub in grouped.groupby(["env_name", "reward_type"], dropna=False):
         best_rows.append(sub.sort_values("final_mean_reward", ascending=False).iloc[0])
 
     best_df = pd.DataFrame(best_rows)
@@ -459,6 +546,8 @@ def plot_mechanism_strength_comparison(
     out_dir: Path,
 ) -> None:
     mcol = mech_col(model)
+    if mcol is None:
+        return
 
     grouped = (
         summary_df.groupby(["env_name", "reward_type", mcol], dropna=False)["final_mean_reward"]
@@ -490,38 +579,40 @@ def plot_mechanism_strength_comparison(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate plots for Student A models.")
+    parser = argparse.ArgumentParser(description="Generate plots for RL experiment models.")
     parser.add_argument(
         "--model",
         type=str,
         required=True,
         choices=sorted(VALID_MODELS),
-        help="Which model to plot: dqn_entropy or dqn_rnd",
+        help="Which model to plot: dqn_entropy, dqn_rnd, or ppo_baseline",
     )
     parser.add_argument(
         "--episode-csv",
         type=str,
         default=None,
-        help="Path to aggregated episode CSV. Defaults to metrics/{model}_all_episodes.csv",
+        help="Path to episode CSV.",
     )
     parser.add_argument(
         "--summary-csv",
         type=str,
         default=None,
-        help="Path to aggregated summary CSV. Defaults to metrics/{model}_all_summary.csv",
+        help="Path to summary CSV.",
     )
     parser.add_argument(
         "--out-dir",
         type=str,
         default=None,
-        help="Path to output visualization directory. Defaults to visualizations/{model}",
+        help="Path to output visualization directory.",
     )
     args = parser.parse_args()
 
     model = args.model
-    episode_csv = Path(args.episode_csv) if args.episode_csv else Path("metrics") / f"{model}_all_episodes.csv"
-    summary_csv = Path(args.summary_csv) if args.summary_csv else Path("metrics") / f"{model}_all_summary.csv"
-    out_root = Path(args.out_dir) if args.out_dir else Path("visualizations") / model
+    default_episode_csv, default_summary_csv, default_out_dir = default_paths(model)
+
+    episode_csv = Path(args.episode_csv) if args.episode_csv else default_episode_csv
+    summary_csv = Path(args.summary_csv) if args.summary_csv else default_summary_csv
+    out_root = Path(args.out_dir) if args.out_dir else default_out_dir
 
     if not episode_csv.exists():
         raise FileNotFoundError(f"Episode CSV not found: {episode_csv}")

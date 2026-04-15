@@ -1,0 +1,36 @@
+# ============================================================================
+# DQN + Entropy Regularization — MountainCar only, longer training
+# Student A (Mohammad)
+# ============================================================================
+
+sweep:
+  seeds: [3]
+  learning_rates: [0.001]
+  gammas: [0.99]
+  alphas: [0.05]
+  environments:
+    - { name: "mountaincar", reward: "dense" }
+    - { name: "mountaincar", reward: "sparse" }
+
+# Train longer, but keep per-episode horizon at the environment default.
+# MountainCar-v0 still terminates after at most 200 env steps per episode.
+num_episodes: 8000
+max_steps: 2000
+log_every: 1000
+final_eval_episodes: 100
+
+buffer_capacity: 250000
+batch_size: 256
+warmup_steps: 1000
+target_update_freq: 500
+epsilon_start: 1.0
+epsilon_end: 0.01
+epsilon_decay_episodes: 8000
+updates_per_episode: 4
+
+model:
+  hidden_dim: 64
+
+log_dir: "./logs/dqn_entropy_mc_8000"
+results_dir: "results/dqn_entropy_mc_8000"
+project_name: "DQN_Entropy_MC8000"

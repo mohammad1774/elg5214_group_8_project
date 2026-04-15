@@ -10,8 +10,8 @@ sweep:
   gammas: [0.99, 0.95]
   alphas: [0.01, 0.05]
   environments:
-    - { name: "cartpole", reward: "dense" }
-    - { name: "cartpole", reward: "sparse" }
+    # - { name: "cartpole", reward: "dense" }
+    # - { name: "cartpole", reward: "sparse" }
     - { name: "mountaincar", reward: "dense" }
     - { name: "mountaincar", reward: "sparse" }
 

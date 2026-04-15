@@ -1,0 +1,38 @@
+# ============================================================================
+# DQN + Random Network Distillation — MountainCar only, longer training
+# Student A (Mohammad)
+# ============================================================================
+
+sweep:
+  seeds: [ 3]
+  learning_rates: [0.001]
+  gammas: [0.99]
+  betas: [0.1, 1.0]
+  environments:
+    - { name: "mountaincar", reward: "dense" }
+    - { name: "mountaincar", reward: "sparse" }
+
+# Train longer, but keep per-episode horizon at the environment default.
+# MountainCar-v0 still terminates after at most 200 env steps per episode.
+num_episodes: 8000
+max_steps: 200
+log_every: 100
+final_eval_episodes: 100
+
+buffer_capacity: 25000
+batch_size: 128
+warmup_steps: 100
+target_update_freq: 500
+epsilon_start: 1.0
+epsilon_end: 0.01
+epsilon_decay_episodes: 8000
+updates_per_episode: 4
+
+predictor_lr: 0.001
+
+model:
+  hidden_dim: 64
+
+log_dir: "./logs/dqn_rnd_mc_8000"
+results_dir: "results/dqn_rnd_mc_8000"
+project_name: "DQN_RND_MC8000"

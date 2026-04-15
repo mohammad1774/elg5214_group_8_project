@@ -1,6 +1,10 @@
 """
 test_dqn_rnd_agent.py — Run a single DQN+RND training run.
 
+Device selection is intentionally left to the shell environment so the same
+entry point can be used on CPU or GPU. Bash/Slurm scripts should set
+JAX_PLATFORMS / CUDA visibility as needed before invoking this module.
+
 Called by the bash sweep script with CLI arguments:
     python -m src.test.test_dqn_rnd_agent \
         --seed 0 --lr 0.001 --gamma 0.99 --beta 0.1 \
@@ -29,6 +33,11 @@ def run(args):
     with open(args.config, "r") as f:
         config = yaml.safe_load(f)
 
+    log_dir = config.get("log_dir", "./logs/dqn_rnd")
+    results_dir = config.get("results_dir", "results/dqn_rnd")
+    project_name = config.get("project_name", "DQN_RND")
+    final_eval_episodes = config.get("final_eval_episodes", 100)
+
     # Setup environment
     env, env_params, obs_dim, num_actions = get_env(args.env, args.reward)
 
@@ -43,13 +52,13 @@ def run(args):
 
     # Logger
     run_id = f"s{args.seed}_lr{args.lr}_g{args.gamma}_b{args.beta}_{args.env}_{args.reward}"
-    logger = setup_logger(run_id, path="./logs/dqn_rnd")
+    logger = setup_logger(run_id, path=log_dir)
     log_device_info(logger)
     logger.info(f"DQN+RND | seed={args.seed}, lr={args.lr}, gamma={args.gamma}, beta={args.beta}")
     logger.info(f"Env: {args.env}/{args.reward}, obs_dim={obs_dim}, num_actions={num_actions}")
 
     # Metrics
-    met_df = RLMetricsDataset("DQN_RND")
+    met_df = RLMetricsDataset(project_name)
 
     # Train
     timer = Timer("DQN+RND training")
@@ -88,7 +97,7 @@ def run(args):
     eval_stats = evaluate_dqn_greedy(
         env=env, env_params=env_params,
         q_params=results["final_q_params"],
-        num_episodes=100,
+        num_episodes=final_eval_episodes,
         max_steps=config["max_steps"],
         seed=args.seed + 99999,
     )
@@ -114,7 +123,7 @@ def run(args):
     )
 
     # Save per-run CSV
-    output_dir = f"results/dqn_rnd/{args.env}_{args.reward}"
+    output_dir = f"{results_dir}/{args.env}_{args.reward}"
     filename = f"lr{args.lr}_g{args.gamma}_b{args.beta}_seed{args.seed}.csv"
     met_df.save(output_dir=output_dir, filename=filename)
 
