@@ -42,6 +42,11 @@ cd "${REPO_ROOT}"
 CONFIG_ENTROPY="configs/dqn_entropy_mountaincar_8000.yaml"
 CONFIG_RND="configs/dqn_rnd_mountaincar_8000.yaml"
 
+# Clear any existing JAX backend settings to avoid conflicts
+unset JAX_PLATFORM
+unset JAX_BACKENDS
+unset JAX_DEFAULT_DEVICE
+
 if [[ "$DEVICE" == "cpu" ]]; then
     export JAX_PLATFORMS=cpu
     unset XLA_PYTHON_CLIENT_PREALLOCATE
@@ -64,15 +69,19 @@ if [[ "$DEVICE" == "cpu" ]]; then
     echo "Total CPU cores: ${TOTAL_CORES}"
     echo "Threads per job: ${THREADS_PER_JOB}"
 else
-    export JAX_PLATFORMS=gpu
+    # Force CUDA backend explicitly
+    unset HSA_OVERRIDE_GFX_VERSION  # Clear AMD/ROCm settings if present
+    unset ROCR_VISIBLE_DEVICES
+    export JAX_PLATFORMS=cuda
     export XLA_PYTHON_CLIENT_PREALLOCATE=false
     if [[ "${PARALLEL}" -gt 1 ]]; then
-        export XLA_PYTHON_CLIENT_MEM_FRACTION="$(python3 -c "print(round(0.9 / ${PARALLEL}, 2))")"
+        export XLA_PYTHON_CLIENT_MEM_FRACTION="$(python3 -c "print(round(0.9 / ${PARALLEL}, 2))")" 
     else
         export XLA_PYTHON_CLIENT_MEM_FRACTION=0.85
     fi
 
-    echo "Device: GPU"
+    echo "Device: GPU (CUDA)"
+    echo "JAX_PLATFORMS=${JAX_PLATFORMS}"
     echo "Parallel jobs: ${PARALLEL}"
     echo "GPU mem fraction per job: ${XLA_PYTHON_CLIENT_MEM_FRACTION}"
 fi

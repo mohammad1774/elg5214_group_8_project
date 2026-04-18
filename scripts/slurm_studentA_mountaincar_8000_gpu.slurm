@@ -1,29 +1,40 @@
 #!/bin/bash
-# Submit with something like:
-#   sbatch --account=def-yourname scripts/slurm_studentA_mountaincar_8000_gpu.sh
-#
-# Optional:
-#   export ENV_ACTIVATE=/home/yourname/venvs/rl/bin/activate
-#   sbatch --account=def-yourname scripts/slurm_studentA_mountaincar_8000_gpu.sh
-
-#SBATCH --job-name=sa-mc8000-gpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
+#SBATCH --job-name=sa-mc8000-gpu-2
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --time=24:00:00
-#SBATCH --gres=gpu:1
+#SBATCH --time=02:00:00
 #SBATCH --output=logs/slurm-sa-mc8000-gpu-%j.out
+#SBATCH --account=def-n37chen
+#SBATCH --gpus=a100_4g.20gb:1
 
 set -euo pipefail
 
 module purge
-module load StdEnv/2023 python/3.11 cuda/12.2
+module load python/3.11
 
-if [[ -n "${ENV_ACTIVATE:-}" ]]; then
-    # shellcheck disable=SC1090
-    source "${ENV_ACTIVATE}"
-fi
+cd /lustre06/project/6110103/fmoha077/project/elg5214_group_project8_project 
 
-cd "${SLURM_SUBMIT_DIR:-$PWD}"
+mkdir -p logs outputs
+
+source ~/venvs/rl_jax_gpu_env/bin/activate
+
+echo "Running on: $(hostname)"
+nvidia-smi
+
+# Clear any ROCm-related environment variables that might interfere
+unset HSA_OVERRIDE_GFX_VERSION
+unset ROCR_VISIBLE_DEVICES
+unset ROC_VISIBLE_DEVICES
+
+# Force CUDA backend
+export JAX_PLATFORMS=cuda
+export XLA_PYTHON_CLIENT_PREALLOCATE=false
+
+echo "Checking JAX CUDA support..."
+python -c "
+import jax
+print('JAX devices:', jax.devices())
+print('CUDA backend initialized successfully!')
+"
+
 bash scripts/run_studentA_mountaincar_8000_gpu.sh "$@"

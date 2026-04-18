@@ -7,26 +7,26 @@ sweep:
   seeds: [3]
   learning_rates: [0.001]
   gammas: [0.99]
-  alphas: [0.05]
+  alphas: [0.1, 0.2]  # Stronger entropy bonus for better exploration
   environments:
     - { name: "mountaincar", reward: "dense" }
     - { name: "mountaincar", reward: "sparse" }
 
 # Train longer, but keep per-episode horizon at the environment default.
-# MountainCar-v0 still terminates after at most 200 env steps per episode.
+# MountainCar-v0 terminates after 200 env steps per episode.
 num_episodes: 8000
-max_steps: 2000
-log_every: 1000
+max_steps: 200  # MountainCar environment limit
+log_every: 100  # More frequent logging to track progress
 final_eval_episodes: 100
 
-buffer_capacity: 250000
-batch_size: 256
-warmup_steps: 1000
+buffer_capacity: 50000  # Reasonable size for 250 episodes worth of data
+batch_size: 128
+warmup_steps: 100  # Shorter warmup
 target_update_freq: 500
 epsilon_start: 1.0
 epsilon_end: 0.01
-epsilon_decay_episodes: 8000
-updates_per_episode: 4
+epsilon_decay_episodes: 1000  # CRITICAL: Decay ε faster so exploration phase is early
+updates_per_episode: 8  # More gradient steps per episode
 
 model:
   hidden_dim: 64
