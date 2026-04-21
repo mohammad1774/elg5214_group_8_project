@@ -1,0 +1,30 @@
+2026-04-21 04:23:56 | INFO | ============================================================
+2026-04-21 04:23:56 | INFO | DEVICE / COMPUTE INFORMATION
+2026-04-21 04:23:56 | INFO |   JAX backend       : GPU
+2026-04-21 04:23:56 | INFO |   Platform          : gpu
+2026-04-21 04:23:56 | INFO |   Num devices       : 1
+2026-04-21 04:23:56 | INFO |   Device            : cuda:0
+2026-04-21 04:23:56 | INFO |   GPU name          : Tesla T4
+2026-04-21 04:23:56 | INFO | ============================================================
+2026-04-21 04:23:56 | INFO | JAX GPU backend confirmed.
+2026-04-21 04:23:56 | INFO | Warming up JAX JIT compiler...
+2026-04-21 04:23:56 | INFO | JIT warmup complete.
+2026-04-21 04:23:56 | INFO | ============================================================
+2026-04-21 04:23:56 | INFO | RUN: ppo_entropy_cartpole_sparse_lr0.005_g0.99_a0.01_s1
+2026-04-21 04:23:56 | INFO |   env=cartpole  reward=sparse
+2026-04-21 04:23:56 | INFO |   lr=0.005  gamma=0.99  alpha=0.01  seed=1
+2026-04-21 04:23:56 | INFO |   JAX backend=gpu  devices=[CudaDevice(id=0)]
+2026-04-21 04:23:56 | INFO | ============================================================
+2026-04-21 04:24:39 | INFO | Episode 1/500 | reward=1.0 | len=19 | loss=0.0077 | entropy=0.6927 | eval_sr=1.000
+2026-04-21 04:26:16 | INFO | Episode 50/500 | reward=1.0 | len=15 | loss=0.0018 | entropy=0.6926 | eval_sr=1.000
+2026-04-21 04:27:56 | INFO | Episode 100/500 | reward=1.0 | len=18 | loss=0.0009 | entropy=0.6879 | eval_sr=1.000
+2026-04-21 04:29:37 | INFO | Episode 150/500 | reward=1.0 | len=22 | loss=0.0034 | entropy=0.6792 | eval_sr=1.000
+2026-04-21 04:31:17 | INFO | Episode 200/500 | reward=1.0 | len=13 | loss=-0.0029 | entropy=0.6504 | eval_sr=1.000
+2026-04-21 04:32:59 | INFO | Episode 250/500 | reward=1.0 | len=31 | loss=0.0188 | entropy=0.6894 | eval_sr=1.000
+2026-04-21 04:34:40 | INFO | Episode 300/500 | reward=1.0 | len=9 | loss=0.0116 | entropy=0.5981 | eval_sr=1.000
+2026-04-21 04:36:22 | INFO | Episode 350/500 | reward=1.0 | len=17 | loss=0.0078 | entropy=0.6011 | eval_sr=1.000
+2026-04-21 04:38:03 | INFO | Episode 400/500 | reward=1.0 | len=10 | loss=0.0088 | entropy=0.5837 | eval_sr=1.000
+2026-04-21 04:39:46 | INFO | Episode 450/500 | reward=1.0 | len=11 | loss=-0.0026 | entropy=0.5613 | eval_sr=1.000
+2026-04-21 04:41:31 | INFO | Episode 500/500 | reward=1.0 | len=20 | loss=0.0062 | entropy=0.5665 | eval_sr=1.000
+2026-04-21 04:41:31 | INFO | Training: 17m 33.63s
+2026-04-21 04:42:05 | INFO | FINAL | mean_reward(last100)=1.00 | eval_sr=1.000 | wall=1053.6s
