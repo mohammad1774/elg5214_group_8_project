@@ -1,0 +1,2 @@
+seed,algorithm,learning_rate,gamma,final_mean_reward,final_success_rate,backend,devices,action,mean_length,wall_time_s,env_name,reward_type
+1,ppo_entropy,0.005,0.99,30.65,1.0,[CudaDevice(id=0)],[CudaDevice(id=0)],stochastic,30.65,1071.3098142480012,cartpole,dense
