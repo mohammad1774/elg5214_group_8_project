@@ -27,4 +27,4 @@ echo "Running on: $(hostname)"
 
 
 cd "${SLURM_SUBMIT_DIR:-$PWD}"
-bash scripts/run_studentA_mountaincar_8000_cpu.sh "$@"
+bash scripts/run_studentA_mountaincar_8000_cpu.sh --parallel 4 "$@"

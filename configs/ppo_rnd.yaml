@@ -1,0 +1,20 @@
+log_dir: "./logs/ppo_rnd"
+results_dir: "results/ppo_rnd"
+project_name: "PPO_RND"
+final_eval_episodes: 100
+
+model:
+  hidden_dim: 64
+
+num_episodes: 2000
+max_steps: 200
+log_every: 50
+
+ppo:
+  clip_epsilon: 0.2
+  gae_lambda: 0.95
+
+rnd:
+  predictor_lr: 0.001
+  hidden_dim: 64
+  beta: 0.1

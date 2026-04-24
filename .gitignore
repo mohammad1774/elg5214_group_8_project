@@ -7,3 +7,5 @@ rl_jax/
 rl_jax_cpu_env/
 rl_jax_gpu_env/
 rl_jax_env/
+
+metrics/analysis/selected_scope_episodes.csv

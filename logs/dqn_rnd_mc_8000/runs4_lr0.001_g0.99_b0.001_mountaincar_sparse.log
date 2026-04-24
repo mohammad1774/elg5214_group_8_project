@@ -1,0 +1,91 @@
+2026-04-21 12:32:23 | INFO | ============================================================
+2026-04-21 12:32:23 | INFO | DEVICE / COMPUTE INFORMATION
+2026-04-21 12:32:23 | INFO |   JAX backend       : CPU
+2026-04-21 12:32:23 | INFO |   Platform          : cpu
+2026-04-21 12:32:23 | INFO |   Num devices       : 1
+2026-04-21 12:32:23 | INFO |   Device            : TFRT_CPU_0
+2026-04-21 12:32:23 | INFO | ============================================================
+2026-04-21 12:32:23 | INFO | DQN+RND | seed=4, lr=0.001, gamma=0.99, beta=0.001
+2026-04-21 12:32:23 | INFO | Env: mountaincar/sparse, obs_dim=2, num_actions=3
+2026-04-21 12:32:54 | INFO | [Episode  100] eps=0.901  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0053  avg_intrinsic=0.0002  eval_success=0.000
+2026-04-21 12:33:23 | INFO | [Episode  200] eps=0.802  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0054  avg_intrinsic=0.0002  eval_success=0.000
+2026-04-21 12:33:53 | INFO | [Episode  300] eps=0.703  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0048  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:34:24 | INFO | [Episode  400] eps=0.604  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0052  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:35:01 | INFO | [Episode  500] eps=0.505  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0051  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:35:39 | INFO | [Episode  600] eps=0.406  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0050  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:36:13 | INFO | [Episode  700] eps=0.307  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0048  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:36:46 | INFO | [Episode  800] eps=0.208  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0048  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:37:20 | INFO | [Episode  900] eps=0.109  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0049  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:38:01 | INFO | [Episode 1000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0049  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:38:41 | INFO | [Episode 1100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0044  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:39:18 | INFO | [Episode 1200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0051  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:39:53 | INFO | [Episode 1300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0049  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:40:29 | INFO | [Episode 1400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0048  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:41:05 | INFO | [Episode 1500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0047  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:41:49 | INFO | [Episode 1600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0046  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:42:32 | INFO | [Episode 1700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0050  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:43:07 | INFO | [Episode 1800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0051  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:43:51 | INFO | [Episode 1900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0047  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:44:38 | INFO | [Episode 2000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0045  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:45:20 | INFO | [Episode 2100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0048  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:45:59 | INFO | [Episode 2200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0046  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:46:37 | INFO | [Episode 2300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:47:25 | INFO | [Episode 2400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0046  avg_intrinsic=0.0001  eval_success=0.000
+2026-04-21 12:48:19 | INFO | [Episode 2500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:48:57 | INFO | [Episode 2600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0042  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:49:39 | INFO | [Episode 2700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0047  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:50:30 | INFO | [Episode 2800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0042  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:51:20 | INFO | [Episode 2900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0046  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:51:58 | INFO | [Episode 3000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0045  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:52:36 | INFO | [Episode 3100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0047  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:53:27 | INFO | [Episode 3200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:54:16 | INFO | [Episode 3300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0040  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:54:59 | INFO | [Episode 3400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:55:40 | INFO | [Episode 3500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0042  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:56:18 | INFO | [Episode 3600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0041  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:57:10 | INFO | [Episode 3700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:57:57 | INFO | [Episode 3800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:58:37 | INFO | [Episode 3900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 12:59:17 | INFO | [Episode 4000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0041  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:00:05 | INFO | [Episode 4100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0044  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:00:59 | INFO | [Episode 4200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0036  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:01:43 | INFO | [Episode 4300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0046  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:02:24 | INFO | [Episode 4400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0040  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:03:20 | INFO | [Episode 4500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0042  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:04:11 | INFO | [Episode 4600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0038  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:04:54 | INFO | [Episode 4700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0043  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:05:42 | INFO | [Episode 4800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0039  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:06:31 | INFO | [Episode 4900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0039  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:07:23 | INFO | [Episode 5000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:08:11 | INFO | [Episode 5100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0038  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:09:03 | INFO | [Episode 5200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0040  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:09:50 | INFO | [Episode 5300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:10:32 | INFO | [Episode 5400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0040  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:11:20 | INFO | [Episode 5500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0039  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:12:10 | INFO | [Episode 5600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0038  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:12:55 | INFO | [Episode 5700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:13:39 | INFO | [Episode 5800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:14:43 | INFO | [Episode 5900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:15:33 | INFO | [Episode 6000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:16:16 | INFO | [Episode 6100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:17:00 | INFO | [Episode 6200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0038  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:17:45 | INFO | [Episode 6300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0039  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:18:33 | INFO | [Episode 6400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:19:17 | INFO | [Episode 6500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:19:58 | INFO | [Episode 6600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:20:39 | INFO | [Episode 6700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:21:24 | INFO | [Episode 6800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:22:13 | INFO | [Episode 6900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0037  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:22:56 | INFO | [Episode 7000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0036  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:23:36 | INFO | [Episode 7100] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0032  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:24:19 | INFO | [Episode 7200] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:25:00 | INFO | [Episode 7300] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:25:47 | INFO | [Episode 7400] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0036  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:26:36 | INFO | [Episode 7500] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0035  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:27:17 | INFO | [Episode 7600] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0034  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:27:58 | INFO | [Episode 7700] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0036  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:28:39 | INFO | [Episode 7800] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0034  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:29:22 | INFO | [Episode 7900] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0033  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:30:10 | INFO | [Episode 8000] eps=0.010  avg_reward=  -1.000  avg_length=200.00  avg_loss=  0.0032  avg_intrinsic=0.0000  eval_success=0.000
+2026-04-21 13:30:10 | INFO | DQN+RND training: 57m 46.51s
+2026-04-21 13:30:34 | INFO | [Final Eval] success=0.000, mean_reward=-1.000
