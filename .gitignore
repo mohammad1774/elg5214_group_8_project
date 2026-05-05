@@ -2,3 +2,14 @@ __pycache__/
 **Zone.Identifier
 venv/
 .env
+rl_jax_cpu_env/
+rl_jax_gpu_env/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
+*.log
