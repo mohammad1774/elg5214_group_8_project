@@ -13,3 +13,5 @@ rl_jax_gpu_env/
 .idea/
 .vscode/
 *.log
+dl_env/
+rl_jax_env/
