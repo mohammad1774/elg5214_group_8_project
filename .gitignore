@@ -15,3 +15,4 @@ rl_jax_gpu_env/
 *.log
 dl_env/
 rl_jax_env/
+.codex
