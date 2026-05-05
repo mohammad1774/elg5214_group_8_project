@@ -16,3 +16,4 @@ rl_jax_gpu_env/
 dl_env/
 rl_jax_env/
 .codex
+metrics/analysis/selected_scope_episodes.csv

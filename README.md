@@ -12,6 +12,17 @@
 
 ---
 
+## Student Branch Assignments
+
+| Student | Working Branch(es) | Focus |
+|---------|---------------------|-------|
+| Student A — Mohammad |  `A/dqn-entropy-rnd` | DQN + entropy regularization and DQN + RND |
+| Student B — Anthony Nasr | `student-B-work`, `anthony-student-B-work` | DQN baseline and DQN + ICM |
+| Student C — Md Mosarraf | `C/ppo-entropy-agent`, `C/ppo-rnd-agent` | PPO + entropy regularization and PPO + RND |
+| Student D — Mariana Chavez Flores | `D/ppo-baseline`, `D/ppo-icm` | PPO baseline and PPO + ICM |
+
+---
+
 ## Overview
 
 A **reproducible, matched-compute comparison** of three exploration mechanisms — **Entropy Regularization**, **Random Network Distillation (RND)**, and the **Intrinsic Curiosity Module (ICM)** — applied to both **PPO** (on-policy) and **DQN** (off-policy) on Gymnax CartPole-v1 and MountainCar-v0 under dense and sparse reward variants.
